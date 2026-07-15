@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-User Coordination — How two people share one screen | Jake Gerlofs</title>
+<meta name="description" content="An in-person eye-tracking study of 26 pairs found that gaze, gesture, and speech operate as a single coordination system — with design implications for real-time collaborative interfaces. Published in Cognitive Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research" class="active">Research portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="study-head">
+  <div class="wrap read">
+    <div class="badges"><span class="badge badge--pub">Published</span><span class="badge">Cognitive Science</span></div>
+    <h1>How two people share one screen: gaze, gestures, and the logic of joint attention.</h1>
+    <p class="lead">An in-person eye-tracking study of 26 pairs found that multimodal cues — gaze, pointing, speech — operate as a system, with design implications for real-time collaborative interfaces.</p>
+    <div class="meta-strip">
+      <span><b>Role:</b>&nbsp;Co-lead researcher (co-first author)</span>
+      <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
+      <span><b>Methods:</b>&nbsp;In-person eye-tracking, dyads</span>
+      <span><b>Status:</b>&nbsp;Published</span>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top:0;">
+  <div class="wrap read study-body">
+
+    <div class="leadstat">
+      <div class="leadstat__big"><em>26 pairs.</em> Gaze + gesture + speech, captured in sync across shared tasks.</div>
+    </div>
+
+    <p class="pullquote">Two people. One screen. We tracked their eyes, their pointing gestures, and every word they said, simultaneously. What we found is that people don't coordinate through one channel — they use gaze, gesture, and speech as a system. Removing any one of them changes everything.</p>
+
+    <h2>The problem</h2>
+    <p>Multi-user and collaborative interfaces are increasingly central to product strategy — from shared editing in Figma and Google Docs to co-browsing in customer service and real-time interfaces in games. But how do two people actually coordinate their attention when sharing a screen? The design question is concrete: where should the interface support joint focus, and where should it support independent navigation?</p>
+
+    <h2>The approach</h2>
+    <p>I ran an in-person eye-tracking study of 26 dyads (N=52), capturing gaze, pointing gestures, and speech synchronously as pairs worked through shared tasks. I used AI-assisted transcription to process the speech data — a practical, time-saving AI workflow at scale — and cross-recurrence quantification analysis to model how the pairs' attention aligned and diverged over time. I also trained junior researchers on the hardware setup and analysis protocols.</p>
+
+    <div class="method-card">
+      <h4>Methodology</h4>
+      <dl>
+        <dt>Design</dt><dd>In-person eye-tracking, 26 dyads (N=52)</dd>
+        <dt>Capture</dt><dd>Synchronized gaze + gesture + speech</dd>
+        <dt>Analysis</dt><dd>Cross-recurrence quantification; AI-assisted transcription &amp; coding</dd>
+        <dt>Tools</dt><dd>Eye-tracker, IMU, AI transcription, R</dd>
+        <dt>Status</dt><dd>Published, Cognitive Science</dd>
+      </dl>
+    </div>
+
+    <h2>What we found</h2>
+    <p>Pairs used gaze, pointing, and speech as a single system — substituting one channel for another when the environment limited it. Whether partners oriented toward a shared screen or separate views meaningfully changed their coordination patterns. The practical upshot: how a collaborative interface handles presence, cursor visibility, and shared-focus affordances shapes how well people can coordinate.</p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 620 240" role="img" aria-label="Synchronized timeline for one pair showing gaze, gesture, and speech events overlapping in time — the three channels interleave and substitute for one another.">
+          <rect width="620" height="240" fill="#ffffff"/>
+          <!-- lanes -->
+          <g font-family="Inter,sans-serif" font-size="12" fill="#1C3557">
+            <text x="20" y="58">Gaze</text><text x="20" y="118">Gesture</text><text x="20" y="178">Speech</text>
+          </g>
+          <line x1="110" y1="52" x2="600" y2="52" stroke="#ECEAE6"/>
+          <line x1="110" y1="112" x2="600" y2="112" stroke="#ECEAE6"/>
+          <line x1="110" y1="172" x2="600" y2="172" stroke="#ECEAE6"/>
+          <!-- gaze events (slate) -->
+          <g fill="#1C3557" opacity=".85"><rect x="120" y="44" width="60" height="16" rx="4"/><rect x="240" y="44" width="40" height="16" rx="4"/><rect x="360" y="44" width="80" height="16" rx="4"/><rect x="500" y="44" width="50" height="16" rx="4"/></g>
+          <!-- gesture events (amber) -->
+          <g fill="#E8883A" opacity=".9"><rect x="200" y="104" width="50" height="16" rx="4"/><rect x="330" y="104" width="30" height="16" rx="4"/><rect x="470" y="104" width="55" height="16" rx="4"/></g>
+          <!-- speech events (green) -->
+          <g fill="#2D6A4F" opacity=".85"><rect x="150" y="164" width="90" height="16" rx="4"/><rect x="300" y="164" width="70" height="16" rx="4"/><rect x="430" y="164" width="120" height="16" rx="4"/></g>
+          <!-- time axis -->
+          <line x1="110" y1="205" x2="600" y2="205" stroke="#dedbd4"/>
+          <text x="355" y="228" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a">Time across one shared task →</text>
+        </svg>
+      </div>
+      <figcaption><b>Three channels, one system.</b> Gaze, gesture, and speech interleave and cover for one another across a task — coordination isn't carried by any single signal (schematic of one representative pair).</figcaption>
+    </figure>
+
+    <h2>Impact</h2>
+    <p>Published in <em>Cognitive Science</em>. The findings inform real-time, multi-user, and multimodal interface design — and the AI-assisted transcription workflow is a separately notable methodological contribution.</p>
+
+    <h2>So what for product</h2>
+    <p>Collaborative products often assume that making each user's activity visible to the other is enough for coordination. The reality is richer: people use multiple channels in parallel, and reducing coordination to a single signal — just cursor position, say — misses the system they actually rely on. Interface design for real-time collaboration, especially on shared screens or in XR, benefits from understanding how people orchestrate these channels, and where flattening that richness creates friction.</p>
+
+    <div class="study-foot">
+      <a class="card__more" href="study-gaze.html">Related: Gaze &amp; Decision-Making — the social context of attention →</a>
+      <a href="work.html">← Back to all work</a>
+    </div>
+
+    <div class="pub__links" style="margin-top:18px;">
+      <a class="chip" href="https://doi.org/10.1111/cogs.70123">Read the full paper ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p></div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

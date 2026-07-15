@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaze &amp; Decision-Making — Watching where someone looks changes what you decide | Jake Gerlofs</title>
+<meta name="description" content="An eye-tracking and large-scale clickstream study showed that social factors — including monitoring one's own attention — shift user decisions as much as interface design does. Published in Cognition (2022).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research" class="active">Research portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="study-head">
+  <div class="wrap read">
+    <div class="badges"><span class="badge badge--pub">Published</span><span class="badge">Cognition · 2022</span></div>
+    <h1>Watching where someone looks changes where you look — and what you decide.</h1>
+    <p class="lead">An eye-tracking and large-scale clickstream study showed that social factors — including monitoring your own attention — shift decisions as much as interface design does.</p>
+    <div class="meta-strip">
+      <span><b>Role:</b>&nbsp;Mixed-methods lead</span>
+      <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
+      <span><b>Methods:</b>&nbsp;Eye-tracking + clickstream A/B</span>
+      <span><b>Status:</b>&nbsp;Published</span>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top:0;">
+  <div class="wrap read study-body">
+
+    <div class="leadstat">
+      <div class="leadstat__big"><em>N=437</em> across eye-tracking + clickstream. Two forces moved decisions: what the interface showed, and what users imagined their attention signalled.</div>
+    </div>
+
+    <p class="pullquote">When you know someone is watching where you look, you look differently. That's not just true in social settings — it's true in digital interfaces. And it changes what you decide.</p>
+
+    <h2>The problem</h2>
+    <p>Any social or shared digital product — collaboration tools, streaming interfaces, social commerce — has users who are aware that their activity may be visible to, or inferred by, others. Does that awareness change behaviour? And does it interact with plain interface salience — the pull of what's visually prominent on screen? For product teams designing shared or presence-aware experiences, the answer shapes how much of user behaviour is "responding to the UI" versus "performing for an audience."</p>
+
+    <h2>The approach</h2>
+    <p>I used a two-study design that triangulates mechanism with scale. First, an eye-tracking experiment (N=17) with within-user manipulations of element salience and social-goal conditions — this reveals the moment-to-moment mechanism. Second, a large-scale clickstream/telemetry study (N=420), built in Python with the same within-user A/B structure — this tests whether the mechanism holds at scale. Eye-tracking tells you <em>why</em>; telemetry tells you <em>how much</em> and <em>how often</em>. I analyzed both with mixed-effects models and ANOVA in R.</p>
+
+    <div class="method-card">
+      <h4>Methodology</h4>
+      <dl>
+        <dt>Design</dt><dd>Eye-tracking (N=17) + clickstream A/B (N=420)</dd>
+        <dt>Structure</dt><dd>Within-user manipulations of salience &amp; social goal</dd>
+        <dt>Analysis</dt><dd>Mixed-effects models, ANOVA, t-tests (R)</dd>
+        <dt>Tools</dt><dd>Eye-tracker, Python (experiment), R (analysis)</dd>
+        <dt>Duration</dt><dd>3 years</dd>
+        <dt>Papers</dt><dd>2 papers — Cognition (2022) + metacognition &amp; social gaze (JEP: General, in press)</dd>
+      </dl>
+    </div>
+
+    <h2>What we found</h2>
+    <p>Two independent effects emerged. First, as expected, visually salient elements pulled attention and shifted decisions. Second — and more novel — users who were aware their gaze might be seen modulated their own behaviour: a social self-monitoring effect that operated on top of, and independently from, interface salience.</p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 640 260" role="img" aria-label="Two 3-by-3 grids comparing gaze dwell when gaze is concealed versus revealed; dwell concentrates differently when users know their gaze can be seen.">
+          <rect width="640" height="260" fill="#ffffff"/>
+          <text x="160" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1C3557">Gaze concealed</text>
+          <text x="480" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1C3557">Gaze revealed</text>
+          <!-- grid A -->
+          <g transform="translate(70,50)">
+            <g fill="none" stroke="#dedbd4"><rect x="0" y="0" width="180" height="180"/><line x1="60" y1="0" x2="60" y2="180"/><line x1="120" y1="0" x2="120" y2="180"/><line x1="0" y1="60" x2="180" y2="60"/><line x1="0" y1="120" x2="180" y2="120"/></g>
+            <circle cx="30" cy="30" r="16" fill="#1C3557" opacity=".55"/>
+            <circle cx="150" cy="30" r="10" fill="#1C3557" opacity=".4"/>
+            <circle cx="90" cy="90" r="22" fill="#1C3557" opacity=".7"/>
+            <circle cx="30" cy="150" r="12" fill="#1C3557" opacity=".45"/>
+            <circle cx="150" cy="150" r="14" fill="#1C3557" opacity=".5"/>
+          </g>
+          <!-- grid B -->
+          <g transform="translate(390,50)">
+            <g fill="none" stroke="#dedbd4"><rect x="0" y="0" width="180" height="180"/><line x1="60" y1="0" x2="60" y2="180"/><line x1="120" y1="0" x2="120" y2="180"/><line x1="0" y1="60" x2="180" y2="60"/><line x1="0" y1="120" x2="180" y2="120"/></g>
+            <circle cx="90" cy="30" r="24" fill="#E8883A" opacity=".7"/>
+            <circle cx="90" cy="90" r="14" fill="#E8883A" opacity=".5"/>
+            <circle cx="30" cy="90" r="10" fill="#E8883A" opacity=".4"/>
+            <circle cx="150" cy="150" r="9" fill="#E8883A" opacity=".4"/>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Knowing your gaze can be seen concentrates where you look</b> (schematic gaze-dwell across a 3×3 display; recreatable from the open data on GitHub).</figcaption>
+    </figure>
+
+    <h2>Impact</h2>
+    <p>The findings inform how digital displays are designed to direct attention appropriately — especially in shared and collaborative interfaces where a user's activity is visible to others. Published in <em>Cognition</em> (2022), with open data and code on GitHub; the social self-monitoring strand is developed further in a companion paper on metacognition and the dual function of social gaze (<em>JEP: General</em>, in press).</p>
+
+    <h2>So what for product</h2>
+    <p>Social awareness is an underappreciated force in product behaviour. Users of tools where activity is visible — collaborative platforms, social commerce, presence-aware apps — don't just respond to what they see; they respond to what they imagine others will see about them. Design that ignores this loop treats users as isolated actors when they aren't. Interfaces that account for social self-monitoring can guide attention more effectively, and design around the friction that visibility can create.</p>
+
+    <div class="study-foot">
+      <a class="card__more" href="study-source-trust.html">Related: Source Trust — the frame around information matters →</a>
+      <a href="work.html">← Back to all work</a>
+    </div>
+
+    <div class="pub__links" style="margin-top:18px;">
+      <a class="chip" href="https://doi.org/10.1016/j.cognition.2022.105209">Read the full paper ↗</a>
+      <a class="chip" href="https://github.com/jacobgerlofs/Hide_and_Seek_Project">Data &amp; code ↗</a>
+      <span class="chip">Companion paper: JEP: General (in press)</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p></div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

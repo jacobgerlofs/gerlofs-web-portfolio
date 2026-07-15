@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Confidence — Users often don't know when they're right | Jake Gerlofs</title>
+<meta name="description" content="An eye-tracking study paired with large-scale behavioural data found that users systematically miscalibrate their confidence — and that better feedback design reduces friction and distrust. Accepted at JEP: General.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research" class="active">Research portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="study-head">
+  <div class="wrap read">
+    <div class="badges"><span class="badge badge--applied">Accepted · in press</span><span class="badge">JEP: General</span></div>
+    <h1>Users often don't know when they're right — and that shapes what they do next.</h1>
+    <p class="lead">An eye-tracking study paired with large-scale behavioural data found that users systematically miscalibrate their confidence — and that better-designed feedback loops reduce friction and distrust.</p>
+    <div class="meta-strip">
+      <span><b>Role:</b>&nbsp;Lead researcher</span>
+      <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
+      <span><b>Methods:</b>&nbsp;Eye-tracking + clickstream</span>
+      <span><b>Status:</b>&nbsp;Accepted, JEP: General</span>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top:0;">
+  <div class="wrap read study-body">
+
+    <div class="leadstat">
+      <div class="leadstat__big">Poor confidence calibration is a <em>design problem</em>, not a user problem.</div>
+    </div>
+
+    <p class="pullquote">Most feedback in product design assumes users know when they're right. They often don't. And that gap — between how confident they feel and how accurate they actually are — is one of the least measured sources of friction in product experiences.</p>
+
+    <h2>The problem</h2>
+    <p>User confidence — the feeling of knowing whether a decision was right — underlies trust, friction, and a sense of agency. A user who doesn't know when they're correct will either over-rely on a product's outputs or under-trust them, and both are bad outcomes. This matters anywhere users must judge their own choices: decision-support tools, recommendation systems, dashboards, and consequential workflows.</p>
+
+    <h2>The approach</h2>
+    <p>I paired an eye-tracking experiment (N=40) — collecting behavioural data alongside trial-by-trial confidence ratings — with a large-scale clickstream/telemetry study (N=326). The eye-tracking data pins down the mechanism; the telemetry tests it at scale. I used LLM-assisted scripting for parts of the analysis pipeline — a practical example of an AI-augmented research workflow that sped up a large, repetitive coding task without compromising rigour.</p>
+
+    <div class="method-card">
+      <h4>Methodology</h4>
+      <dl>
+        <dt>Design</dt><dd>Eye-tracking (N=40) + clickstream A/B (N=326)</dd>
+        <dt>Measure</dt><dd>Trial-level confidence ratings vs. accuracy</dd>
+        <dt>Analysis</dt><dd>Mixed-effects models, confidence–accuracy correlation</dd>
+        <dt>Tools</dt><dd>Eye-tracker, Python, R, LLM-assisted coding</dd>
+        <dt>Status</dt><dd>Accepted, JEP: General</dd>
+      </dl>
+    </div>
+
+    <h2>What we found</h2>
+    <p>Users were often poor judges of their own performance — confidence did not reliably track accuracy. But designs that better aligned decision outcomes with confidence cues (calibrated feedback) reduced this gap, and with it the unnecessary friction and trust deficits that miscalibration produces.</p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 560 320" role="img" aria-label="Calibration plot: the diagonal marks perfect calibration; the data line falls below it, showing users are systematically overconfident — their accuracy lags their stated confidence.">
+          <rect width="560" height="320" fill="#ffffff"/>
+          <!-- axes -->
+          <line x1="70" y1="40" x2="70" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
+          <line x1="70" y1="260" x2="500" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
+          <text x="285" y="298" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a">Stated confidence →</text>
+          <text x="26" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a" transform="rotate(-90 26 150)">Actual accuracy →</text>
+          <!-- perfect calibration diagonal -->
+          <line x1="70" y1="260" x2="500" y2="40" stroke="#8a8d92" stroke-width="1.5" stroke-dasharray="6 6"/>
+          <text x="470" y="58" font-family="Inter,sans-serif" font-size="11" fill="#8a8d92">perfect</text>
+          <!-- data line: overconfident (below diagonal) -->
+          <path d="M70 260 C 180 235, 300 205, 500 120" fill="none" stroke="#E8883A" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="180" cy="234" r="4" fill="#E8883A"/><circle cx="285" cy="207" r="4" fill="#E8883A"/><circle cx="390" cy="170" r="4" fill="#E8883A"/><circle cx="500" cy="120" r="4" fill="#E8883A"/>
+          <text x="430" y="150" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#cf6f24">observed</text>
+          <!-- gap annotation -->
+          <line x1="500" y1="40" x2="500" y2="120" stroke="#1C3557" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="512" y="86" font-family="Inter,sans-serif" font-size="11" fill="#1C3557">the gap</text>
+        </svg>
+      </div>
+      <figcaption><b>Confidence outran accuracy.</b> The gap between the dashed diagonal (perfect calibration) and the observed line is the entire story — users felt more sure than they were (schematic of the calibration pattern).</figcaption>
+    </figure>
+
+    <h2>Impact</h2>
+    <p>Accepted in <em>Journal of Experimental Psychology: General</em>. The product implications land on feedback design, confirmation UX, and any system where users must judge their own decisions — the question being: where does confidence miscalibration cause observable product problems?</p>
+
+    <h2>So what for product</h2>
+    <p>Confidence miscalibration is a hidden source of friction. When users feel uncertain about decisions they got right, they second-guess, abandon, or seek excessive confirmation. When they feel confident about decisions they got wrong, they don't course-correct. Both degrade experience — and, in consequential products, outcomes. Feedback that helps users accurately assess their own performance is a high-ROI intervention that is rarely measured, because most analytics track what users do, not whether they felt right about it.</p>
+
+    <div class="study-foot">
+      <a class="card__more" href="study-checkingin.html">Related: CheckingIn — the gap between seeing and acting →</a>
+      <a href="work.html">← Back to all work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p></div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

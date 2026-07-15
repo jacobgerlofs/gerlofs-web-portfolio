@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Complexity — The threshold where task success collapses | Jake Gerlofs</title>
+<meta name="description" content="An eye-tracking study identified the precise threshold at which visual complexity collapses user performance — a 55% drop in task success — with direct implications for dense dashboard and UI design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research" class="active">Research portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="study-head">
+  <div class="wrap read">
+    <div class="badges"><span class="badge badge--slate">Under revision</span><span class="badge">Eye-tracking</span></div>
+    <h1>55% drop in task success. The cost of one too many display elements.</h1>
+    <p class="lead">An eye-tracking study identified the precise threshold at which visual complexity collapses user performance — with direct implications for dense dashboard and UI design.</p>
+    <div class="meta-strip">
+      <span><b>Role:</b>&nbsp;Lead researcher</span>
+      <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
+      <span><b>Methods:</b>&nbsp;Eye-tracking, within-user</span>
+      <span><b>Status:</b>&nbsp;Under revision</span>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top:0;">
+  <div class="wrap read study-body">
+
+    <div class="leadstat">
+      <div class="leadstat__big">Task success dropped <em>55%</em> at peak complexity — not gradually, at a threshold.</div>
+    </div>
+
+    <p class="pullquote">There's a threshold. Below it, users handle complexity fine. Above it, task success doesn't degrade slowly — it collapses. Knowing where that threshold is for your product is more useful than knowing that complexity is bad.</p>
+
+    <h2>The problem</h2>
+    <p>Every team building a dashboard, a search results page, or an information-dense interface faces a version of the same question: how much is too much? Visual complexity and cognitive load are easy to discuss qualitatively and hard to measure. The design stakes are concrete: at what point does adding information start subtracting from usefulness?</p>
+
+    <h2>The approach</h2>
+    <p>I ran an eye-tracking experiment (N=42) with within-user manipulations of display visual complexity and task load, so each participant served as their own baseline. Rather than assume a smooth relationship, I used LLM-assisted scripting to run threshold-detection analyses — searching for the inflection point where performance changes character, not just degrades. That threshold detection is the methodological contribution.</p>
+
+    <div class="method-card">
+      <h4>Methodology</h4>
+      <dl>
+        <dt>Design</dt><dd>Eye-tracking, within-user complexity manipulation (N=42)</dd>
+        <dt>Analysis</dt><dd>Threshold detection, gaze-pattern analysis, LLM-assisted scripting</dd>
+        <dt>Tools</dt><dd>Eye-tracker, Python, R</dd>
+        <dt>Status</dt><dd>Under revision (peer-reviewed)</dd>
+        <dt>Code</dt><dd>github.com/jacobgerlofs/h_s_complex_displays</dd>
+      </dl>
+    </div>
+
+    <h2>What we found</h2>
+    <p>Task success was not a linear function of complexity. There were identifiable thresholds at which performance collapsed, and users' gaze patterns changed qualitatively at those same points — attention dispersed rather than degrading smoothly. In the most complex condition, task success fell by up to 55%.</p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 600 320" role="img" aria-label="Line chart of task success versus display complexity: success holds near 90 percent through low and medium complexity, then collapses about 55 percent past a threshold marked with a vertical line.">
+          <rect width="600" height="320" fill="#ffffff"/>
+          <!-- axes -->
+          <line x1="70" y1="30" x2="70" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
+          <line x1="70" y1="260" x2="560" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
+          <g font-family="JetBrains Mono, monospace" font-size="11" fill="#8a8d92">
+            <line x1="70" y1="60"  x2="560" y2="60"  stroke="#ECEAE6"/><text x="60" y="64"  text-anchor="end">90%</text>
+            <line x1="70" y1="150" x2="560" y2="150" stroke="#ECEAE6"/><text x="60" y="154" text-anchor="end">50%</text>
+            <line x1="70" y1="238" x2="560" y2="238" stroke="#ECEAE6"/><text x="60" y="242" text-anchor="end">10%</text>
+          </g>
+          <text x="315" y="298" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a">Display complexity →</text>
+          <!-- threshold line -->
+          <line x1="380" y1="30" x2="380" y2="260" stroke="#1C3557" stroke-width="1.2" stroke-dasharray="5 5"/>
+          <text x="388" y="46" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1C3557">threshold</text>
+          <!-- data line: flat high, then collapse -->
+          <path d="M90 66 L200 68 L300 74 L380 84 L440 190 L520 214" fill="none" stroke="#E8883A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#E8883A"><circle cx="90" cy="66" r="4"/><circle cx="200" cy="68" r="4"/><circle cx="300" cy="74" r="4"/><circle cx="380" cy="84" r="4"/><circle cx="440" cy="190" r="4"/><circle cx="520" cy="214" r="4"/></g>
+          <!-- 55% drop annotation -->
+          <line x1="520" y1="84" x2="520" y2="214" stroke="#cf6f24" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="534" y="150" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#cf6f24">−55%</text>
+        </svg>
+      </div>
+      <figcaption><b>Performance holds, then falls off a cliff.</b> Task success stays high until a threshold of complexity, then collapses ~55% (illustrative of the measured threshold effect; open data on GitHub).</figcaption>
+    </figure>
+
+    <h2>Impact</h2>
+    <p>The results directly inform information-density and visual-hierarchy decisions for dense UIs. Under revision for peer-reviewed publication, with data and code available on GitHub for replication.</p>
+
+    <h2>So what for product</h2>
+    <p>Visual complexity doesn't degrade performance linearly — it has cliff edges. Understanding where those thresholds sit for your specific product and users is far more actionable than general guidance to "avoid clutter." Research like this gives design and product teams an empirically grounded line to defend: this much complexity maintains task success; this much collapses it. That's the difference between a design heuristic and a design criterion.</p>
+
+    <div class="study-foot">
+      <a class="card__more" href="study-multi-user-coordination.html">Related: Multi-User Coordination — managing attention under demand →</a>
+      <a href="work.html">← Back to all work</a>
+    </div>
+
+    <div class="pub__links" style="margin-top:18px;">
+      <a class="chip" href="https://github.com/jacobgerlofs/h_s_complex_displays">Data &amp; code ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p></div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
