@@ -65,36 +65,20 @@
       </dl>
     </div>
 
+    <div class="paper-ref">
+      <h4>Paper</h4>
+      <div class="paper-ref__title">Eye spy: Gaze communication and deception during hide-and-seek — <em>Cognition</em> (2022)</div>
+      <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., Anderson, N. C., &amp; Kingstone, A. (2022). Eye spy: Gaze communication and deception during hide-and-seek. Cognition, 227, 105209. https://doi.org/10.1016/j.cognition.2022.105209</p>
+      <div class="paper-ref__links">
+        <a class="chip" href="https://doi.org/10.1016/j.cognition.2022.105209">Read the paper ↗</a>
+        <a class="chip" href="https://github.com/jacobgerlofs/Hide_and_Seek_Project">Data &amp; code ↗</a>
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
+      </div>
+      <div class="paper-ref__note">The social self-monitoring strand is developed in a companion paper (JEP: General, in press).</div>
+    </div>
+
     <h2>What we found</h2>
     <p>Two independent effects emerged. First, as expected, visually salient elements pulled attention and shifted decisions. Second — and more novel — users who were aware their gaze might be seen modulated their own behaviour: a social self-monitoring effect that operated on top of, and independently from, interface salience.</p>
-
-    <figure class="figure">
-      <div class="figure-frame">
-        <svg viewBox="0 0 640 260" role="img" aria-label="Two 3-by-3 grids comparing gaze dwell when gaze is concealed versus revealed; dwell concentrates differently when users know their gaze can be seen.">
-          <rect width="640" height="260" fill="#ffffff"/>
-          <text x="160" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1C3557">Gaze concealed</text>
-          <text x="480" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1C3557">Gaze revealed</text>
-          <!-- grid A -->
-          <g transform="translate(70,50)">
-            <g fill="none" stroke="#dedbd4"><rect x="0" y="0" width="180" height="180"/><line x1="60" y1="0" x2="60" y2="180"/><line x1="120" y1="0" x2="120" y2="180"/><line x1="0" y1="60" x2="180" y2="60"/><line x1="0" y1="120" x2="180" y2="120"/></g>
-            <circle cx="30" cy="30" r="16" fill="#1C3557" opacity=".55"/>
-            <circle cx="150" cy="30" r="10" fill="#1C3557" opacity=".4"/>
-            <circle cx="90" cy="90" r="22" fill="#1C3557" opacity=".7"/>
-            <circle cx="30" cy="150" r="12" fill="#1C3557" opacity=".45"/>
-            <circle cx="150" cy="150" r="14" fill="#1C3557" opacity=".5"/>
-          </g>
-          <!-- grid B -->
-          <g transform="translate(390,50)">
-            <g fill="none" stroke="#dedbd4"><rect x="0" y="0" width="180" height="180"/><line x1="60" y1="0" x2="60" y2="180"/><line x1="120" y1="0" x2="120" y2="180"/><line x1="0" y1="60" x2="180" y2="60"/><line x1="0" y1="120" x2="180" y2="120"/></g>
-            <circle cx="90" cy="30" r="24" fill="#E8883A" opacity=".7"/>
-            <circle cx="90" cy="90" r="14" fill="#E8883A" opacity=".5"/>
-            <circle cx="30" cy="90" r="10" fill="#E8883A" opacity=".4"/>
-            <circle cx="150" cy="150" r="9" fill="#E8883A" opacity=".4"/>
-          </g>
-        </svg>
-      </div>
-      <figcaption><b>Knowing your gaze can be seen concentrates where you look</b> (schematic gaze-dwell across a 3×3 display; recreatable from the open data on GitHub).</figcaption>
-    </figure>
 
     <h2>Impact</h2>
     <p>The findings inform how digital displays are designed to direct attention appropriately — especially in shared and collaborative interfaces where a user's activity is visible to others. Published in <em>Cognition</em> (2022), with open data and code on GitHub; the social self-monitoring strand is developed further in a companion paper on metacognition and the dual function of social gaze (<em>JEP: General</em>, in press).</p>
@@ -105,12 +89,6 @@
     <div class="study-foot">
       <a class="card__more" href="study-source-trust.html">Related: Source Trust — the frame around information matters →</a>
       <a href="work.html">← Back to all work</a>
-    </div>
-
-    <div class="pub__links" style="margin-top:18px;">
-      <a class="chip" href="https://doi.org/10.1016/j.cognition.2022.105209">Read the full paper ↗</a>
-      <a class="chip" href="https://github.com/jacobgerlofs/Hide_and_Seek_Project">Data &amp; code ↗</a>
-      <span class="chip">Companion paper: JEP: General (in press)</span>
     </div>
   </div>
 </section>
@@ -134,5 +112,8 @@
   </div>
 </footer>
 
+<script>
+function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
+</script>
 </body>
 </html>

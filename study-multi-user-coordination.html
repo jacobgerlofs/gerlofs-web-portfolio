@@ -64,33 +64,19 @@
       </dl>
     </div>
 
+    <div class="paper-ref">
+      <h4>Paper</h4>
+      <div class="paper-ref__title">Coordinating attention in face-to-face collaboration: The dynamics of gaze, pointing, and verbal reference — <em>Cognitive Science</em> (2025)</div>
+      <p class="paper-ref__apa">Haraped, L., Gerlofs, D. J., Huang, O. C. H., Hickling, C., Bischof, W. F., Sachse, P., &amp; Kingstone, A. (2025). Coordinating attention in face-to-face collaboration: The dynamics of gaze, pointing, and verbal reference. Cognitive Science, 49(10), Article e70123. https://doi.org/10.1111/cogs.70123</p>
+      <div class="paper-ref__links">
+        <a class="chip" href="https://doi.org/10.1111/cogs.70123">Read the paper ↗</a>
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
+      </div>
+      <div class="paper-ref__note">Co-first-authored.</div>
+    </div>
+
     <h2>What we found</h2>
     <p>Pairs used gaze, pointing, and speech as a single system — substituting one channel for another when the environment limited it. Whether partners oriented toward a shared screen or separate views meaningfully changed their coordination patterns. The practical upshot: how a collaborative interface handles presence, cursor visibility, and shared-focus affordances shapes how well people can coordinate.</p>
-
-    <figure class="figure">
-      <div class="figure-frame">
-        <svg viewBox="0 0 620 240" role="img" aria-label="Synchronized timeline for one pair showing gaze, gesture, and speech events overlapping in time — the three channels interleave and substitute for one another.">
-          <rect width="620" height="240" fill="#ffffff"/>
-          <!-- lanes -->
-          <g font-family="Inter,sans-serif" font-size="12" fill="#1C3557">
-            <text x="20" y="58">Gaze</text><text x="20" y="118">Gesture</text><text x="20" y="178">Speech</text>
-          </g>
-          <line x1="110" y1="52" x2="600" y2="52" stroke="#ECEAE6"/>
-          <line x1="110" y1="112" x2="600" y2="112" stroke="#ECEAE6"/>
-          <line x1="110" y1="172" x2="600" y2="172" stroke="#ECEAE6"/>
-          <!-- gaze events (slate) -->
-          <g fill="#1C3557" opacity=".85"><rect x="120" y="44" width="60" height="16" rx="4"/><rect x="240" y="44" width="40" height="16" rx="4"/><rect x="360" y="44" width="80" height="16" rx="4"/><rect x="500" y="44" width="50" height="16" rx="4"/></g>
-          <!-- gesture events (amber) -->
-          <g fill="#E8883A" opacity=".9"><rect x="200" y="104" width="50" height="16" rx="4"/><rect x="330" y="104" width="30" height="16" rx="4"/><rect x="470" y="104" width="55" height="16" rx="4"/></g>
-          <!-- speech events (green) -->
-          <g fill="#2D6A4F" opacity=".85"><rect x="150" y="164" width="90" height="16" rx="4"/><rect x="300" y="164" width="70" height="16" rx="4"/><rect x="430" y="164" width="120" height="16" rx="4"/></g>
-          <!-- time axis -->
-          <line x1="110" y1="205" x2="600" y2="205" stroke="#dedbd4"/>
-          <text x="355" y="228" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a">Time across one shared task →</text>
-        </svg>
-      </div>
-      <figcaption><b>Gaze, gesture, and speech interleave and cover for one another across a task</b> — coordination isn't carried by any single signal (schematic of one representative pair).</figcaption>
-    </figure>
 
     <h2>Impact</h2>
     <p>Published in <em>Cognitive Science</em>. The findings inform real-time, multi-user, and multimodal interface design.</p>
@@ -101,10 +87,6 @@
     <div class="study-foot">
       <a class="card__more" href="study-gaze.html">Related: Gaze &amp; Decision-Making — the social context of attention →</a>
       <a href="work.html">← Back to all work</a>
-    </div>
-
-    <div class="pub__links" style="margin-top:18px;">
-      <a class="chip" href="https://doi.org/10.1111/cogs.70123">Read the full paper ↗</a>
     </div>
   </div>
 </section>
@@ -128,5 +110,8 @@
   </div>
 </footer>
 
+<script>
+function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
+</script>
 </body>
 </html>

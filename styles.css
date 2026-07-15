@@ -191,6 +191,16 @@ a.card { color: inherit; }
 .rtable tr.key td { background: #fbeede; }
 .rtable tr.key td:last-child { color: var(--amber-dark); font-weight: 600; }
 
+/* ---------- Paper / citation block ---------- */
+.paper-ref { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--green); border-radius: var(--radius); padding: 20px 22px; margin: 28px 0; }
+.paper-ref h4 { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--green); margin: 0 0 10px; }
+.paper-ref__title { font-weight: 600; color: var(--slate); font-size: 1rem; line-height: 1.4; }
+.paper-ref__apa { font-size: .88rem; color: var(--ink-soft); margin: 10px 0 14px; line-height: 1.55; }
+.paper-ref__links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.paper-ref__copy { font-family: var(--sans); font-size: .78rem; font-weight: 600; color: var(--slate); background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.paper-ref__copy:hover { border-color: var(--slate); }
+.paper-ref__note { font-size: .85rem; color: var(--ink-soft); margin-top: 12px; }
+
 /* ---------- Publications ---------- */
 .pub {
   background: var(--surface-2); border: 1px solid var(--line); border-left: 4px solid var(--slate);

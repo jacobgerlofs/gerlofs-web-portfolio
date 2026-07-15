@@ -64,32 +64,18 @@
       </dl>
     </div>
 
+    <div class="paper-ref">
+      <h4>Paper</h4>
+      <div class="paper-ref__title">Metacognition and the dual function of social gaze — <em>Journal of Experimental Psychology: General</em> (in press)</div>
+      <p class="paper-ref__apa">Gerlofs, J. D., &amp; Kingstone, A. (in press). Metacognition and the dual function of social gaze. Journal of Experimental Psychology: General.</p>
+      <div class="paper-ref__links">
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
+      </div>
+      <div class="paper-ref__note">In press — a DOI link will be added on publication.</div>
+    </div>
+
     <h2>What we found</h2>
     <p>Users were often poor judges of their own performance — confidence did not reliably track accuracy. But designs that better aligned decision outcomes with confidence cues (calibrated feedback) reduced this gap, and with it the unnecessary friction and trust deficits that miscalibration produces.</p>
-
-    <figure class="figure">
-      <div class="figure-frame">
-        <svg viewBox="0 0 560 320" role="img" aria-label="Calibration plot: the diagonal marks perfect calibration; the data line falls below it, showing users are systematically overconfident — their accuracy lags their stated confidence.">
-          <rect width="560" height="320" fill="#ffffff"/>
-          <!-- axes -->
-          <line x1="70" y1="40" x2="70" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
-          <line x1="70" y1="260" x2="500" y2="260" stroke="#dedbd4" stroke-width="1.5"/>
-          <text x="285" y="298" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a">Stated confidence →</text>
-          <text x="26" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#45474a" transform="rotate(-90 26 150)">Actual accuracy →</text>
-          <!-- perfect calibration diagonal -->
-          <line x1="70" y1="260" x2="500" y2="40" stroke="#8a8d92" stroke-width="1.5" stroke-dasharray="6 6"/>
-          <text x="470" y="58" font-family="Inter,sans-serif" font-size="11" fill="#8a8d92">perfect</text>
-          <!-- data line: overconfident (below diagonal) -->
-          <path d="M70 260 C 180 235, 300 205, 500 120" fill="none" stroke="#E8883A" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="180" cy="234" r="4" fill="#E8883A"/><circle cx="285" cy="207" r="4" fill="#E8883A"/><circle cx="390" cy="170" r="4" fill="#E8883A"/><circle cx="500" cy="120" r="4" fill="#E8883A"/>
-          <text x="430" y="150" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#cf6f24">observed</text>
-          <!-- gap annotation -->
-          <line x1="500" y1="40" x2="500" y2="120" stroke="#1C3557" stroke-width="1" stroke-dasharray="3 3"/>
-          <text x="512" y="86" font-family="Inter,sans-serif" font-size="11" fill="#1C3557">the gap</text>
-        </svg>
-      </div>
-      <figcaption><b>Confidence outran accuracy.</b> The gap between the dashed diagonal (perfect calibration) and the observed line shows users felt more sure than they were (schematic of the calibration pattern).</figcaption>
-    </figure>
 
     <h2>Impact</h2>
     <p>Accepted in <em>Journal of Experimental Psychology: General</em>. The product implications land on feedback design, confirmation UX, and any system where users must judge their own decisions — the question being: where does confidence miscalibration cause observable product problems?</p>
@@ -123,5 +109,8 @@
   </div>
 </footer>
 
+<script>
+function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
+</script>
 </body>
 </html>

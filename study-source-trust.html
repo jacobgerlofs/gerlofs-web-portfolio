@@ -66,37 +66,19 @@
       </dl>
     </div>
 
+    <div class="paper-ref">
+      <h4>Paper</h4>
+      <div class="paper-ref__title">Perceived intent drives gaze interpretation — <em>Attention, Perception, &amp; Psychophysics</em> (2025)</div>
+      <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., &amp; Kingstone, A. (2025). Perceived intent drives gaze interpretation. Attention, Perception, &amp; Psychophysics, 87, 2323–2331. https://doi.org/10.3758/s13414-025-03149-9</p>
+      <div class="paper-ref__links">
+        <a class="chip" href="https://doi.org/10.3758/s13414-025-03149-9">Read the paper ↗</a>
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
+      </div>
+      <div class="paper-ref__note">A companion neurodivergent extension (sub-clinical sample) is under peer review.</div>
+    </div>
+
     <h2>What we found</h2>
     <p>Trust framing shifted decision rates by roughly 30 percentage points. Crucially, the <em>actual information</em> the source provided moved decisions less than the framing around it did. And the effect wasn't uniform: neurodivergent user segments showed distinct trust-updating patterns — meaning a single trust-signal design can serve some users well and others poorly.</p>
-
-    <figure class="figure">
-      <div class="figure-frame">
-        <svg viewBox="0 0 640 320" role="img" aria-label="Bar chart: trust framing shifted decisions about 30 percent, roughly three times the effect of the source's actual information content (about 11 percent).">
-          <rect width="640" height="320" fill="#ffffff"/>
-          <!-- axes -->
-          <line x1="90" y1="40" x2="90" y2="250" stroke="#dedbd4" stroke-width="1.5"/>
-          <line x1="90" y1="250" x2="600" y2="250" stroke="#dedbd4" stroke-width="1.5"/>
-          <!-- y gridlines + labels -->
-          <g font-family="JetBrains Mono, monospace" font-size="11" fill="#8a8d92">
-            <line x1="90" y1="250" x2="600" y2="250" stroke="#ECEAE6"/><text x="78" y="254" text-anchor="end">0%</text>
-            <line x1="90" y1="180" x2="600" y2="180" stroke="#ECEAE6"/><text x="78" y="184" text-anchor="end">10%</text>
-            <line x1="90" y1="110" x2="600" y2="110" stroke="#ECEAE6"/><text x="78" y="114" text-anchor="end">20%</text>
-            <line x1="90" y1="40"  x2="600" y2="40"  stroke="#ECEAE6"/><text x="78" y="44"  text-anchor="end">30%</text>
-          </g>
-          <!-- bars: information content ~11% -> height (250-180.7); trust ~30% -> to y=40 -->
-          <rect x="180" y="173" width="120" height="77" rx="4" fill="#1C3557"/>
-          <text x="240" y="163" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#1C3557">11%</text>
-          <rect x="400" y="40" width="120" height="210" rx="4" fill="#E8883A"/>
-          <text x="460" y="30" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" font-weight="700" fill="#cf6f24">30%</text>
-          <!-- x labels -->
-          <g font-family="Inter,sans-serif" font-size="13" fill="#45474a" text-anchor="middle">
-            <text x="240" y="272">Information content</text>
-            <text x="460" y="272">Trust framing</text>
-          </g>
-        </svg>
-      </div>
-      <figcaption><b>Trust framing shifted decisions ~3× more than the actual information did</b> (bars show shift in decision rate by condition; illustrative of the reported effect).</figcaption>
-    </figure>
 
     <h2>Impact</h2>
     <p>The findings have direct implications for how products frame credibility: source badges, ranking positions, and trust cues can move users more than the content they label. The segmentation result points to concrete inclusive-design changes for neurodivergent users. The core study is published in <em>Attention, Perception, &amp; Psychophysics</em> (2025); the neurodivergent extension is under peer review.</p>
@@ -107,11 +89,6 @@
     <div class="study-foot">
       <a class="card__more" href="study-gaze.html">Related: Gaze &amp; Decision-Making — the frame matters as much as the information →</a>
       <a href="work.html">← Back to all work</a>
-    </div>
-
-    <div class="pub__links" style="margin-top:18px;">
-      <a class="chip" href="https://doi.org/10.3758/s13414-025-03149-9">Read the full paper ↗</a>
-      <span class="chip">Neurodivergent extension — under review</span>
     </div>
   </div>
 </section>
@@ -135,5 +112,8 @@
   </div>
 </footer>
 
+<script>
+function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
+</script>
 </body>
 </html>
