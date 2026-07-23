@@ -107,6 +107,10 @@ strong { font-weight: 600; }
 .hero h1 { max-width: 16ch; }
 .hero .lead { max-width: 54ch; margin-bottom: 28px; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.hero-photo-wrap { display: flex; justify-content: center; }
+.hero-photo { width: 300px; max-width: 80%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; border: 6px solid #fff; box-shadow: 0 2px 4px rgba(28,53,87,.08), 0 20px 46px -16px rgba(28,53,87,.32); display: block; }
+.skills-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px 34px; }
+@media (max-width: 860px) { .skills-2 { grid-template-columns: 1fr; } .hero-photo { width: 240px; } }
 
 /* ---------- Stats bar ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
