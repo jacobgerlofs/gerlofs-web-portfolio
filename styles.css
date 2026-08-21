@@ -184,6 +184,8 @@ a.card { color: inherit; }
 .figure-frame { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
 
 /* ---------- Research table ---------- */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 26px 0; }
+.table-wrap .rtable { margin: 0; min-width: 460px; }
 .rtable { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: .93rem; }
 .rtable thead th {
   font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em;
@@ -273,6 +275,23 @@ section[id] { scroll-margin-top: 82px; }
 .awards li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: .96rem; color: var(--ink-soft); }
 .awards li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
 .awards li b { color: var(--slate); font-weight: 600; }
+
+
+/* ---------- Two-up figure ---------- */
+.fig-2up { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; min-width: 900px; }
+
+
+/* ---------- Wide figures (diagrams) ---------- */
+.figure-frame--wide { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.figure-frame--wide > svg { min-width: 900px; }
+.fig-hint { display: none; }
+@media (max-width: 720px) { .fig-hint { display: block; margin-top: 6px; font-style: italic; } }
+.figure--wide {
+  width: min(1032px, calc(100vw - 56px));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {

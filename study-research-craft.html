@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building the team and the method - Jake Gerlofs</title>
+<meta name="description" content="Measuring how two people coordinate attention meant inventing the measure, fusing four unsynchronized data streams, and training a team to run it. Published in Cognitive Science, 2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research" class="active">Research portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="study-head">
+  <div class="wrap read">
+    <div class="badges"><span class="badge badge--pub">Published</span><span class="badge">Cognitive Science · 2025</span><span class="badge">26 pairs · N=52</span><span class="badge badge--slate">Co-first author</span></div>
+    <h1>Nobody had measured this, and I could not run it alone. So the method and the team had to be built together.</h1>
+    <p class="lead">Two people, two eye-trackers, gestures, and speech, all recorded at once and all on different clocks. The published paper is the artifact. The work behind it was inventing a measure, fusing four data streams that did not line up, and getting a team of junior researchers running complex sessions on their own.</p>
+    <div class="meta-strip">
+      <span><b>Role:</b>&nbsp;Co-lead researcher (co-first author)</span>
+      <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
+      <span><b>Methods:</b>&nbsp;Dual mobile eye-tracking, video, dialogue, time-series modelling</span>
+      <span><b>Status:</b>&nbsp;Published</span>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top:0;">
+  <div class="wrap read study-body">
+
+    <div class="leadstat">
+      <div class="leadstat__big">Four capture streams. Four different clocks. <em>One</em> timeline that all of them had to agree on.</div>
+    </div>
+
+    <h2>The problem</h2>
+    <p>Collaborative products - shared documents, co-browsing, multiplayer, XR - assume that showing each person what the other is doing is enough for them to coordinate. That assumption had never really been tested, because nobody had a way to measure coordination between two people as it happened.</p>
+    <p>Measuring one user is tractable. Measuring the <em>system</em> two users form is a different problem. Coordination is not a state you can sample; it is a relationship between behaviours unfolding over time, across modalities, in both directions. There was no off-the-shelf instrument for it, and the honest answer to "how would you measure that?" at the start was: we would have to build it.</p>
+
+    <h2>Designing a measure for it</h2>
+    <p>We put pairs face-to-face across a table with six impressionist paintings mounted on the partition between them, arranged so each partner could see both the paintings and the other person's face. The task was to agree on a ranking in four minutes. That is deliberately mundane: it produces natural conversation, disagreement, and constant pointing at things, without needing any expertise from participants.</p>
+    <p>Then we instrumented all of it at once. Both participants wore binocular mobile eye-trackers. Fiducial markers between the paintings let us map each person's gaze onto the shared surface rather than just into their own headset video. A microphone caught dialogue. Two participant-facing cameras caught pointing gestures. Every deictic gesture and every verbal reference to a painting was defined in advance so it could be coded consistently.</p>
+    <p>The design choice that made it work was the one that sounds trivial: an audiovisual cue played on the monitors in front of both participants, captured by all four video feeds. That single shared event is what let everything be synchronized afterwards.</p>
+
+    <h2>Making four streams agree</h2>
+    <p>This is where most of the difficulty actually lived. The gaze cameras sampled at 200 Hz, scene video at 60 Hz, participant-facing cameras at 25 fps, and speech arrived as timestamped text with no fixed rate at all. Mobile eye-tracking in a moving, talking dyad loses samples to blinks and head movement - ours averaged 18% loss, which is normal for the method and still has to be handled rather than ignored.</p>
+    <p>The pipeline resolved to a decision I had to make explicitly: what temporal resolution can this dataset honestly support? The answer was set by the slowest stream, so everything was aligned on the shared audiovisual cue, then resampled down to a common 5 Hz categorical time series, with a mode-based smoothing pass over the noisiest channel. From there, cross-recurrence quantification analysis could ask which behaviour leads which in time, both within a person and between the two of them.</p>
+
+    <figure class="figure figure--wide">
+      <div class="figure-frame figure-frame--wide">
+        <svg viewBox="0 0 980 392" role="img" aria-labelledby="fuseTitle" style="width:100%;height:auto;display:block;">
+          <title id="fuseTitle">Diagram: four capture streams recorded at different sampling rates - gaze at 200 hertz, scene video at 60 hertz, participant cameras at 25 frames per second, and speech transcribed with no fixed rate - are aligned on a shared audiovisual cue and resampled into a single 5 hertz categorical timeline for analysis.</title>
+          <defs>
+            <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#9aa3ae"></path>
+            </marker>
+          </defs>
+
+          <text x="6" y="24" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#cf6f24" letter-spacing="1.6">FOUR CLOCKS</text>
+
+          <text x="6" y="68" font-family="Inter, sans-serif" font-size="17" fill="#1C3557" font-weight="600">Gaze (×2)</text>
+          <text x="6" y="90" font-family="Inter, sans-serif" font-size="15" fill="#45474a">200 Hz</text>
+          <rect x="180" y="52" width="340" height="30" rx="4" fill="#eef2f8" stroke="#c9d3e2"></rect>
+          <g stroke="#1C3557" stroke-width="1.7"><path d="M188,56 L188,78 M196,56 L196,78 M204,56 L204,78 M212,56 L212,78 M220,56 L220,78 M228,56 L228,78 M236,56 L236,78 M244,56 L244,78 M252,56 L252,78 M260,56 L260,78 M268,56 L268,78 M276,56 L276,78 M284,56 L284,78 M292,56 L292,78 M300,56 L300,78 M308,56 L308,78 M316,56 L316,78 M324,56 L324,78 M332,56 L332,78 M340,56 L340,78 M348,56 L348,78 M356,56 L356,78 M364,56 L364,78 M372,56 L372,78 M380,56 L380,78 M388,56 L388,78 M396,56 L396,78 M404,56 L404,78 M412,56 L412,78 M420,56 L420,78 M428,56 L428,78 M436,56 L436,78 M444,56 L444,78 M452,56 L452,78 M460,56 L460,78 M468,56 L468,78 M476,56 L476,78 M484,56 L484,78 M492,56 L492,78 M500,56 L500,78 M508,56 L508,78"></path></g>
+
+          <text x="6" y="132" font-family="Inter, sans-serif" font-size="17" fill="#1C3557" font-weight="600">Scene video</text>
+          <text x="6" y="154" font-family="Inter, sans-serif" font-size="15" fill="#45474a">60 Hz · ~18% loss</text>
+          <rect x="180" y="116" width="340" height="30" rx="4" fill="#eef2f8" stroke="#c9d3e2"></rect>
+          <g stroke="#1C3557" stroke-width="2"><path d="M190,120 L190,142 M212,120 L212,142 M234,120 L234,142 M278,120 L278,142 M300,120 L300,142 M322,120 L322,142 M344,120 L344,142 M388,120 L388,142 M410,120 L410,142 M432,120 L432,142 M476,120 L476,142 M498,120 L498,142"></path></g>
+          <text x="250" y="110" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#cf6f24">dropped samples</text>
+
+          <text x="6" y="196" font-family="Inter, sans-serif" font-size="17" fill="#1C3557" font-weight="600">Pointing (video)</text>
+          <text x="6" y="218" font-family="Inter, sans-serif" font-size="15" fill="#45474a">25 fps</text>
+          <rect x="180" y="180" width="340" height="30" rx="4" fill="#eef2f8" stroke="#c9d3e2"></rect>
+          <g stroke="#1C3557" stroke-width="2.2"><path d="M196,184 L196,206 M232,184 L232,206 M268,184 L268,206 M304,184 L304,206 M340,184 L340,206 M376,184 L376,206 M412,184 L412,206 M448,184 L448,206 M484,184 L484,206"></path></g>
+
+          <text x="6" y="260" font-family="Inter, sans-serif" font-size="17" fill="#1C3557" font-weight="600">Speech</text>
+          <text x="6" y="282" font-family="Inter, sans-serif" font-size="15" fill="#45474a">no fixed rate</text>
+          <rect x="180" y="244" width="340" height="30" rx="4" fill="#eef2f8" stroke="#c9d3e2"></rect>
+          <rect x="200" y="251" width="46" height="16" rx="3" fill="#E8883A" opacity=".85"></rect>
+          <rect x="282" y="251" width="28" height="16" rx="3" fill="#E8883A" opacity=".85"></rect>
+          <rect x="338" y="251" width="62" height="16" rx="3" fill="#E8883A" opacity=".85"></rect>
+          <rect x="446" y="251" width="38" height="16" rx="3" fill="#E8883A" opacity=".85"></rect>
+
+          <line x1="180" y1="44" x2="180" y2="320" stroke="#cf6f24" stroke-width="2.5" stroke-dasharray="7 5"></line>
+          <text x="180" y="344" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#cf6f24">shared cue</text>
+          <text x="180" y="366" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" fill="#45474a">seen by all four feeds</text>
+
+          <path d="M540,163 L596,163" stroke="#9aa3ae" stroke-width="3" fill="none" marker-end="url(#arw2)"></path>
+          <text x="568" y="146" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" fill="#45474a">align</text>
+          <text x="568" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" fill="#45474a">+ resample</text>
+
+          <text x="618" y="24" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#cf6f24" letter-spacing="1.6">ONE TIMELINE</text>
+          <rect x="618" y="52" width="360" height="240" rx="12" fill="#eef2f8" stroke="#1C3557" stroke-width="2.5"></rect>
+          <text x="640" y="86" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#1C3557">5 Hz categorical series</text>
+
+          <text x="640" y="120" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P1 gaze</text>
+          <g fill="#1C3557"><rect x="722" y="108" width="30" height="15" rx="2"></rect><rect x="756" y="108" width="46" height="15" rx="2" opacity=".55"></rect><rect x="806" y="108" width="24" height="15" rx="2" opacity=".8"></rect><rect x="834" y="108" width="52" height="15" rx="2" opacity=".35"></rect><rect x="890" y="108" width="34" height="15" rx="2" opacity=".7"></rect><rect x="928" y="108" width="40" height="15" rx="2" opacity=".5"></rect></g>
+
+          <text x="640" y="152" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P2 gaze</text>
+          <g fill="#1C3557"><rect x="722" y="140" width="44" height="15" rx="2" opacity=".55"></rect><rect x="770" y="140" width="28" height="15" rx="2"></rect><rect x="802" y="140" width="48" height="15" rx="2" opacity=".35"></rect><rect x="854" y="140" width="32" height="15" rx="2" opacity=".8"></rect><rect x="890" y="140" width="34" height="15" rx="2" opacity=".5"></rect><rect x="928" y="140" width="40" height="15" rx="2" opacity=".7"></rect></g>
+
+          <text x="640" y="184" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P1 point</text>
+          <g fill="#24406a"><rect x="756" y="172" width="34" height="15" rx="2"></rect><rect x="864" y="172" width="28" height="15" rx="2"></rect></g>
+
+          <text x="640" y="216" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P2 point</text>
+          <g fill="#24406a"><rect x="808" y="204" width="30" height="15" rx="2"></rect><rect x="926" y="204" width="26" height="15" rx="2"></rect></g>
+
+          <text x="640" y="248" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P1 words</text>
+          <g fill="#E8883A"><rect x="734" y="236" width="20" height="15" rx="2"></rect><rect x="826" y="236" width="16" height="15" rx="2"></rect><rect x="898" y="236" width="18" height="15" rx="2"></rect></g>
+
+          <text x="640" y="280" font-family="Inter, sans-serif" font-size="15" fill="#45474a">P2 words</text>
+          <g fill="#E8883A"><rect x="782" y="268" width="18" height="15" rx="2"></rect><rect x="874" y="268" width="22" height="15" rx="2"></rect></g>
+
+          <text x="798" y="326" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#45474a">Now you can ask which behaviour leads which,</text>
+          <text x="798" y="348" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#45474a">within a person and between the pair.</text>
+        </svg>
+      </div>
+      <figcaption><b>The integration problem, and what solved it.</b> Four capture streams at four sampling rates, aligned on a single shared cue and resampled to the resolution the slowest stream can honestly support. Schematic. <span class="fig-hint">Scroll the diagram sideways to see all of it.</span></figcaption>
+    </figure>
+
+    <h2>Where AI sat in the pipeline, and where it did not</h2>
+    <p>Four minutes of conversation per pair, 26 pairs, every painting reference needing a timestamp accurate to a fraction of a second. Hand-transcribing that is weeks of work and the bottleneck for the whole analysis.</p>
+    <p>We ran the audio through an AI speech model to produce timestamped, word-aligned transcripts, then imported those into the annotation software alongside the video. That collapsed the transcription bottleneck almost entirely.</p>
+    <p>What the model did <em>not</em> do is decide anything. Judging whether "the realistic one" or "your lower left one" actually refers to a specific painting is interpretation, so three coders blind to the hypotheses did that by hand, after training on a shared set and cross-checking one pair in common to establish interrater reliability before any of it counted. The model handled the mechanical layer; humans handled the judgement layer; and the boundary between them was written down before we started.</p>
+    <p>That is the same posture I bring to AI in research now. It is very good at the volume problem. It is not evidence until a person has checked it, and the check has to be designed in advance rather than bolted on when a reviewer asks.</p>
+
+    <h2>Building a team that could run it</h2>
+    <p>A session meant two computers, two eye-trackers, two cameras, a calibration procedure that could fail silently, and a moderator staying present with two participants throughout. That is a hard split-attention task, and I could not be in the room for all of them.</p>
+
+    <h3>A protocol people could actually follow</h3>
+    <p>I wrote a standardized testing protocol, and my first instinct was to have everyone follow it exactly. That was wrong. Researchers do not all think or work the same way, and rigid adherence produced brittle compliance rather than good sessions.</p>
+    <p>So I rebuilt the protocol around explicit prioritization: here is what must be identical every time because the data depends on it, and here is where you should adapt it to your own workflow. People took that up in different ways. Some wanted printed instruction scripts, some tagged the equipment with prompts for correct handling, some reordered steps that had no dependency on each other. Fewer failed sessions, less wasted lab time, and no loss of rigour on the parts that carried the findings.</p>
+
+    <h3>Scaffolding, then removing it</h3>
+    <p>For researchers new to moderating, I stopped correcting after the fact and moved the feedback as close to the session as possible. They observed my sessions first so they had a model rather than a document. I sat in on their early ones and we debriefed immediately, while it was still fresh, and specifically: not "you led the participant" but "when they paused, you jumped in with a suggestion - next time, wait ten seconds."</p>
+    <p>Then I pulled the scaffolding back deliberately: sitting in, to on-call outside the room, to fully independent. Within a few weeks they were running sessions with no issues flagged in data-quality checks. One went on to take on their own research assistants and onboarded them using a version of the same approach, which is the outcome I actually care about.</p>
+
+    <h3>A shared version-controlled workflow</h3>
+    <p>The other bottleneck was not the lab, it was the analysis. Everyone on the team wrote their own R code for jobs that were largely the same - cleaning, modelling, plotting. People shared scripts if asked, but there was no system. Someone could lose hours hunting down a colleague's code, or wait days for a collaborator to hand a script back before they could touch a shared project.</p>
+    <p>I learned a collaborative Git workflow and then taught it to the team: local repository, push to your own remote, merge into the shared one, everyone syncs. Presentations, then hands-on workshops, then co-working on live projects until it was habit rather than instruction.</p>
+    <p>The efficiency gain was real - people on the same project could write against the same scripts concurrently instead of passing files back and forth. But the change I did not anticipate was social. Once the work was in a shared repository, collaboration stopped feeling like an interruption of someone else's time. Asking for help became reading a commit; contributing became a merge rather than a favour. The team simply worked together more, because the cost of doing so had dropped.</p>
+
+    <h2>What the study found</h2>
+    <p>People do not coordinate through one channel. Gaze, pointing, and speech were all coupled above chance, within each person and between the pair - a single system rather than three signals.</p>
+    <ul class="awards">
+      <li><b>Pointing leads the partner's gaze.</b> A partner is most likely to look at a painting about a second after the other person points at it. Verbal references lead gaze too, but less tightly and with more variability between people.</li>
+      <li><b>Gaze-to-gaze coupling is symmetric, with a lag.</b> Pairs looked at the same things at similar times, most often about a second apart rather than simultaneously. Neither person consistently led.</li>
+      <li><b>People followed the ordinary rules of conversation.</b> Participants spent about 28% of their listening time looking at their partner's face, against about 12% while speaking.</li>
+      <li><b>Pointing and speaking together sustained coupling longer</b> than pointing alone - the channels compound rather than substitute.</li>
+    </ul>
+
+    <h2>So what for product</h2>
+    <p>Collaborative interfaces routinely reduce coordination to one signal - usually cursor position. This says that is a lossy compression of what people actually use. Deictic gesture (the "look at <em>this</em>" move) is the strongest and most reliable pointer to a partner's attention, and it leads their gaze by roughly a second, which is a concrete latency budget for presence features. Speech carries attention too, and pairing an explicit pointer with a verbal reference holds joint attention longer than either alone.</p>
+    <p>For shared screens, co-browsing, multiplayer, and XR, the design implication is that a coordination affordance is not a nice-to-have decoration on top of presence. It is doing the work that gesture does in person.</p>
+
+    <div class="paper-ref">
+      <h4>Full APA reference</h4>
+      <p class="paper-ref__apa">Haraped, L., Gerlofs, D. J., Huang, O. C. H., Hickling, C., Bischof, W. F., Sachse, P., &amp; Kingstone, A. (2025). Coordinating attention in face-to-face collaboration: The dynamics of gaze, pointing, and verbal reference. Cognitive Science, 49(10), Article e70123. https://doi.org/10.1111/cogs.70123</p>
+      <div class="paper-ref__links">
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
+        <a class="chip" href="https://doi.org/10.1111/cogs.70123">Read the paper ↗</a>
+      </div>
+      <div class="paper-ref__note">Shared first authorship.</div>
+    </div>
+
+    <div class="method-card">
+      <h4>Methodology</h4>
+      <dl>
+        <dt>Design</dt><dd>26 face-to-face dyads (N=52), collaborative ranking task, four minutes of free conversation</dd>
+        <dt>Capture</dt><dd>Two binocular mobile eye-trackers, fiducial-marker surface mapping, microphone, two participant-facing cameras</dd>
+        <dt>Processing</dt><dd>AI speech transcription with word-level timestamps; three blind human coders; interrater reliability established before coding counted</dd>
+        <dt>Integration</dt><dd>All streams aligned on a shared audiovisual cue, resampled to a 5 Hz categorical time series</dd>
+        <dt>Analysis</dt><dd>Cross-recurrence quantification analysis; lag asymmetry tested with Wilcoxon signed-rank, Bonferroni-corrected</dd>
+        <dt>Team</dt><dd>Junior researchers trained and supervised on hardware, moderation, and coding protocols</dd>
+        <dt>Status</dt><dd>Published, <em>Cognitive Science</em> (2025)</dd>
+      </dl>
+    </div>
+
+    <div class="study-foot">
+      <a class="card__more" href="study-checkingin.html">Next: the 0→1 product case study →</a>
+      <a href="index.html#research">← All three case studies</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p></div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
+</script>
+</body>
+</html>
