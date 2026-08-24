@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Measuring what an interface actually does to a decision - Jake Gerlofs</title>
-<meta name="description" content="Six years, 10+ studies, 1,600+ participants: building a measure for something that had never been measured, then extending it to trust, display complexity, and confidence. Published in Cognition, Attention Perception &amp; Psychophysics, and JEP: General.">
+<title>Experimental research program, UBC - Jake Gerlofs</title>
+<meta name="description" content="A question with no established way to be measured: how people's attention and decisions change when they know someone else can see what they are doing. Six years, 10+ studies, N=1,600+. Published in Cognition, Attention Perception &amp; Psychophysics, and JEP: General.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
@@ -26,14 +26,14 @@
 
 <section class="study-head">
   <div class="wrap read">
-    <div class="badges"><span class="badge badge--pub">3 published + 1 under revision</span><span class="badge">Eye-tracking + online experiments</span><span class="badge">N=1,600+</span></div>
-    <h1>What a screen shows is not what decides what people do with it. So I built a way to measure the gap.</h1>
-    <p class="lead">A six-year experimental program at UBC. There was no established measure for the question I wanted to answer, so the first job was building one and proving it worked. Then I extended it in three directions: trust, display complexity, and whether users can judge their own accuracy.</p>
+    <div class="badges"><span class="badge badge--pub">Peer-reviewed</span><span class="badge">Eye-tracking + online experiments</span><span class="badge">N=1,600+</span></div>
+    <h1>How people's attention and decisions change when they know someone else can see what they are doing.</h1>
+    <p class="lead">A question with no established way to be measured. I built the measure, then extended it in three directions: how much information is on screen, how beliefs about another person bias decisions, and whether users can judge their own performance.</p>
     <div class="meta-strip">
-      <span><b>Role:</b>&nbsp;Program lead</span>
+      <span><b>Role:</b>&nbsp;Mixed-methods UX Researcher</span>
       <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
-      <span><b>Span:</b>&nbsp;2019 - 2025</span>
-      <span><b>Output:</b>&nbsp;3 published papers, 1 under revision</span>
+      <span><b>Span:</b>&nbsp;Sep 2019 – Aug 2025</span>
+      <span><b>Methods:</b>&nbsp;Eye-tracking, online experiments, mixed-effects modelling</span>
     </div>
   </div>
 </section>
@@ -42,185 +42,134 @@
   <div class="wrap read study-body">
 
     <h2>The question</h2>
-    <p>Every interface assumes users read what is on it and decide accordingly. But attention runs in two directions at once. What a user looks at takes information <em>in</em> - and wherever their activity is visible to anyone else, it also gives information <em>away</em>. Anyone who has hesitated before opening a message because the sender would see the read receipt has felt both halves at the same time.</p>
-    <p>How people manage that trade-off, and what it does to the decisions they make, had never been measured. That is the gap I spent six years building instruments for.</p>
+    <p>People rarely use a product unobserved. Activity is visible to teammates, managers, whoever shares the document - and the moment someone knows they can be seen, their behaviour changes. That makes attention serve two functions: the eyes gather information, and they also give it away.</p>
+    <p>No established method existed to measure how behaviour changes as we balance these functions, so I built one. I paired users. The first navigated a display and selected a target while their gaze was recorded, sometimes trying to help their partner find it, sometimes trying to hide it. The second then watched that gaze, navigated the same display, and guessed the choice. That gives two measures from one task: what the first user gave away while trying to do their own job, and how the second user read it.</p>
+    <p>Each study below varies one part of that exchange. Each was randomized, within-user, and modelled with mixed-effects regression. Most ran in the lab and were rebuilt in Python to run online at roughly ten times the sample - 100K+ observations per study. What follows is a sample of six years of self-managed research: 10+ studies, N=1,600+, and $215K in competitive funding, delivered on time and budget.</p>
 
-    <h2>Building the measure</h2>
-    <p>With no established method, the hard part was not running studies. It was deciding what would count as evidence at all.</p>
-    <p>I designed a two-person search-and-signal task. One user navigates a display and selects a target while their gaze is recorded. A second user then watches that gaze replayed over the same display and infers which element was chosen. That captures both halves of the signal in a single design - and, more importantly, it makes the measure falsifiable. If the second user could not beat chance, then the first user's attention carried no signal and the whole approach fails.</p>
-    <p>They beat chance. And their accuracy moved with the conditions I had manipulated, which is what convinced me the measure was real before I trusted anything it produced. Only then did I rebuild the task in Python to run online, so every lab finding could be re-checked at roughly ten times the sample. Studies were randomized and within-user, modelled with mixed-effects regression across 100,000+ observations.</p>
+    <h2>Display complexity degrades attention management</h2>
+    <p><b>Question.</b> Can users balance their attentional signals in visually complex computer displays?</p>
+    <p><b>Design.</b> Manipulated the display's visual complexity and the task's difficulty (display navigation while self-monitoring attention); tracked search accuracy and eye movements. n=42.</p>
+    <p><b>Result.</b> Task success did not decay linearly but collapsed past a threshold. This forced users to make trade-offs between the quality of their decisions and the quality of their attentional signals. Modelling identified these thresholds and their consequences. <em>(Report under review.)</em></p>
 
-    <figure class="figure figure--wide">
-      <div class="figure-frame figure-frame--wide">
-        <svg viewBox="0 0 980 430" role="img" aria-labelledby="progTitle" style="width:100%;height:auto;display:block;">
-          <title id="progTitle">Diagram: one measurement approach, built and validated, then extended in three directions - trust in the source, display complexity, and confidence calibration - converging on a single conclusion.</title>
-          <defs>
-            <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-              <path d="M0,0 L10,5 L0,10 z" fill="#9aa3ae"></path>
-            </marker>
-          </defs>
-          <rect x="4" y="90" width="282" height="260" rx="14" fill="#eef2f8" stroke="#1C3557" stroke-width="2.5"></rect>
-          <text x="26" y="126" font-family="Lora, Georgia, serif" font-size="21" font-weight="700" fill="#1C3557">Building the measure</text>
-          <text x="26" y="156" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">Attention takes information in</text>
-          <text x="26" y="180" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">and gives it away. No measure</text>
-          <text x="26" y="204" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">existed for that trade-off, so</text>
-          <text x="26" y="228" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">I designed and validated one:</text>
-          <text x="26" y="252" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">a two-person search-and-</text>
-          <text x="26" y="276" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">signal task.</text>
-          <text x="26" y="308" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#45474a">Eye-tracking N=17 + telemetry</text>
-          <text x="26" y="328" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#45474a">N=420 · Cognition, 2022</text>
-          <path d="M292,206 L344,71" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <path d="M292,220 L344,215" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <path d="M292,234 L344,359" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <rect x="350" y="6" width="430" height="130" rx="12" fill="#ffffff" stroke="#24406a" stroke-width="2"></rect>
-          <text x="372" y="42" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#1C3557">Trust in the source</text>
-          <text x="372" y="72" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">Belief about a source's intent moved</text>
-          <text x="372" y="94" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">decisions ~30 points, more than the content.</text>
-          <text x="372" y="120" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#45474a">N=157, replicated N=360 · AP&amp;P, 2025</text>
-          <rect x="350" y="150" width="430" height="130" rx="12" fill="#ffffff" stroke="#24406a" stroke-width="2"></rect>
-          <text x="372" y="186" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#1C3557">Display complexity</text>
-          <text x="372" y="216" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">Task success collapsed past a complexity</text>
-          <text x="372" y="238" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">threshold rather than degrading gradually.</text>
-          <text x="372" y="264" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#45474a">N=42 · under revision</text>
-          <rect x="350" y="294" width="430" height="130" rx="12" fill="#ffffff" stroke="#24406a" stroke-width="2"></rect>
-          <text x="372" y="330" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#1C3557">Confidence calibration</text>
-          <text x="372" y="360" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">Users could judge their own success, but</text>
-          <text x="372" y="382" font-family="Inter, sans-serif" font-size="16" fill="#1A1A1A">only in some conditions - the model says which.</text>
-          <text x="372" y="408" font-family="Inter, sans-serif" font-size="14" font-style="italic" fill="#45474a">N=40 + telemetry N=326 · JEP: General</text>
-          <path d="M786,71 L802,206" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <path d="M786,215 L802,220" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <path d="M786,359 L802,234" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#arw)"></path>
-          <rect x="808" y="90" width="172" height="260" rx="14" fill="#eef2f8" stroke="#1C3557" stroke-width="2.5"></rect>
-          <text x="894" y="126" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="20" font-weight="700" fill="#1C3557">In short</text>
-          <text x="894" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">How users read a</text>
-          <text x="894" y="180" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">screen depends on</text>
-          <text x="894" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">context: who can</text>
-          <text x="894" y="224" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">see them, whether</text>
-          <text x="894" y="246" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">they trust it, how</text>
-          <text x="894" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">much is on it.</text>
-          <text x="894" y="290" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">Adoption turns on</text>
-          <text x="894" y="312" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">that context, and I</text>
-          <text x="894" y="334" text-anchor="middle" font-family="Inter, sans-serif" font-size="15.5" fill="#1A1A1A">made it measurable.</text>
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 580 340" role="img" aria-labelledby="cxTitle" style="width:100%;height:auto;display:block;">
+          <title id="cxTitle">Bar chart: search accuracy falls from 82% at low display complexity to 66% at moderate and 20% at high, against a chance floor of about 11%.</title>
+          <line x1="104" y1="24" x2="540" y2="24" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="104" y1="144" x2="540" y2="144" stroke="#e6e4df" stroke-width="1.5"></line>
+          <text x="94" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">100%</text>
+          <text x="94" y="150" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
+          <text x="94" y="270" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">0%</text>
+          <rect x="127" y="67" width="96" height="197" fill="#1C3557"></rect>
+          <rect x="274" y="106" width="96" height="158" fill="#1C3557"></rect>
+          <rect x="421" y="216" width="96" height="48" fill="#1C3557"></rect>
+          <g stroke="#0f1f36" stroke-width="2.5" fill="none">
+            <path d="M175,59 L175,75 M167,59 L183,59 M167,75 L183,75"></path>
+            <path d="M322,94 L322,118 M314,94 L330,94 M314,118 L330,118"></path>
+            <path d="M469,204 L469,228 M461,204 L477,204 M461,228 L477,228"></path>
+          </g>
+          <text x="175" y="46" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#1C3557">82%</text>
+          <text x="322" y="81" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#1C3557">66%</text>
+          <text x="469" y="191" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#E8883A">20%</text>
+          <line x1="104" y1="237" x2="540" y2="237" stroke="#8a8f98" stroke-width="2" stroke-dasharray="9 7"></line>
+          <text x="94" y="242" text-anchor="end" font-family="Inter, sans-serif" font-size="15" font-style="italic" fill="#45474a">chance</text>
+          <line x1="104" y1="264" x2="540" y2="264" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <line x1="104" y1="24" x2="104" y2="264" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <text x="175" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">Low</text>
+          <text x="322" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">Moderate</text>
+          <text x="469" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">High</text>
+          <text x="322" y="328" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">Display complexity</text>
+          <text x="34" y="144" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 34 144)">Search accuracy</text>
         </svg>
       </div>
-      <figcaption><b>One measurement approach, built and validated, then extended in three directions.</b> Each extension is a separate peer-reviewed study, run at both lab and online scale. <span class="fig-hint">Scroll the diagram sideways to see all of it.</span></figcaption>
+      <figcaption>Search accuracy by display complexity. Dashed line is chance (1 in 9); error bars are SE. Schematic.</figcaption>
     </figure>
 
-    <h2>What it showed</h2>
-    <p>How a user reads a screen is not a fixed property of the screen. It shifts with who can see them, what they believe about the source, and how much is in front of them - and each of those turned out to be measurable.</p>
+    <h2>People act on trust more than truth</h2>
+    <p><b>Question.</b> How much are user decisions biased by another person's attention, and does it depend on whether the user trusts that person?</p>
+    <p><b>Design.</b> Modelled users' choices against the strength of another person's attention nudging them to a given choice. Then manipulated whether the user trusted the attentional nudges. n=157, replicated at n=360.</p>
+    <p><b>Result.</b> User trust moved decisions more than the nudges themselves - about 30 percentage points from framing alone. High trust followed the cue; low trust discounted it. <em>(Attention, Perception &amp; Psychophysics, 2025.)</em></p>
 
-    <h3>Trust moved decisions more than the information did</h3>
-    <p>I manipulated only what users believed about the <em>intent</em> of whoever was signalling to them: cooperative, or deceptive. Not the accuracy of the signal, not its salience, just the belief about who was behind it. That alone moved decision rates by about <b>30 percentage points</b> - a larger effect than the information itself carried.</p>
-    <p>The same cue moved high-trust and low-trust users in visibly different directions (right, below). A replication segmented by sub-clinical neurodivergent traits showed the effect is not uniform across a user base: the same interface signal lands differently for different segments.</p>
-
-    <h3>Complexity collapses performance at a threshold, not along a slope</h3>
-    <p>The methodological contribution here matters more than the headline. Everyone knows dense displays hurt performance. What was not known is the <em>shape</em> of the curve. It is not a gentle slope: past a threshold, task success falls off a cliff, and gaze patterns change in kind rather than in degree at the same point (left, below).</p>
-    <p>In the condition shown, search accuracy went from 82% to 20% against a chance floor of 1 in 9. That is the difference between a heuristic ("avoid clutter") and a criterion a design team can defend a decision with.</p>
-
-    <figure class="figure figure--wide">
-      <div class="figure-frame figure-frame--wide">
-        <div class="fig-2up">
-
-          <svg viewBox="0 0 500 340" role="img" aria-labelledby="cxTitle" style="width:100%;height:auto;display:block;">
-            <title id="cxTitle">Bar chart: search accuracy falls from 82% at low display complexity to 66% at moderate and 20% at high, against a chance floor of about 11%.</title>
-            <line x1="84" y1="24" x2="490" y2="24" stroke="#e6e4df" stroke-width="1.5"></line>
-            <line x1="84" y1="144" x2="490" y2="144" stroke="#e6e4df" stroke-width="1.5"></line>
-            <text x="74" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">100%</text>
-            <text x="74" y="150" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
-            <text x="74" y="270" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">0%</text>
-            <rect x="122" y="67" width="86" height="197" fill="#1C3557"></rect>
-            <rect x="247" y="106" width="86" height="158" fill="#1C3557"></rect>
-            <rect x="372" y="216" width="86" height="48" fill="#1C3557"></rect>
-            <g stroke="#0f1f36" stroke-width="2.5" fill="none">
-              <path d="M165,59 L165,75 M157,59 L173,59 M157,75 L173,75"></path>
-              <path d="M290,94 L290,118 M282,94 L298,94 M282,118 L298,118"></path>
-              <path d="M415,204 L415,228 M407,204 L423,204 M407,228 L423,228"></path>
-            </g>
-            <text x="165" y="46" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#1C3557">82%</text>
-            <text x="290" y="81" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#1C3557">66%</text>
-            <text x="415" y="191" text-anchor="middle" font-family="Lora, Georgia, serif" font-size="24" font-weight="700" fill="#E8883A">20%</text>
-            <line x1="84" y1="237" x2="490" y2="237" stroke="#8a8f98" stroke-width="2" stroke-dasharray="9 7"></line>
-            <text x="74" y="242" text-anchor="end" font-family="Inter, sans-serif" font-size="15" font-style="italic" fill="#45474a">chance</text>
-            <line x1="84" y1="264" x2="490" y2="264" stroke="#b9b6ae" stroke-width="1.5"></line>
-            <line x1="84" y1="24" x2="84" y2="264" stroke="#b9b6ae" stroke-width="1.5"></line>
-            <text x="165" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">Low</text>
-            <text x="290" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">Moderate</text>
-            <text x="415" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#1A1A1A">High</text>
-            <text x="287" y="328" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">Display complexity</text>
-            <text x="24" y="144" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 24 144)">Search accuracy</text>
-          </svg>
-
-          <svg viewBox="0 0 500 340" role="img" aria-labelledby="trTitle" style="width:100%;height:auto;display:block;">
-            <title id="trTitle">Line chart: as a cue toward an element strengthens, high-trust users rise from about 15% to 90% probability of selecting it, while low-trust users rise only from about 13% to 25%.</title>
-            <line x1="120" y1="52" x2="330" y2="52" stroke="#e6e4df" stroke-width="1.5"></line>
-            <line x1="120" y1="110" x2="330" y2="110" stroke="#e6e4df" stroke-width="1.5"></line>
-            <line x1="120" y1="172" x2="330" y2="172" stroke="#e6e4df" stroke-width="1.5"></line>
-            <line x1="120" y1="226" x2="330" y2="226" stroke="#e6e4df" stroke-width="1.5"></line>
-            <line x1="120" y1="262" x2="330" y2="262" stroke="#e6e4df" stroke-width="1.5"></line>
-            <text x="110" y="58" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">90%</text>
-            <text x="110" y="116" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">75%</text>
-            <text x="110" y="178" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
-            <text x="110" y="232" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">25%</text>
-            <text x="110" y="268" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">10%</text>
-            <path d="M126,243 L326,43 L326,61 L126,255 Z" fill="#1C3557" opacity="0.16"></path>
-            <path d="M126,249 L326,52" stroke="#1C3557" stroke-width="5" fill="none" stroke-linecap="round"></path>
-            <path d="M126,249 L326,216 L326,236 L126,261 Z" fill="#E8883A" opacity="0.18"></path>
-            <path d="M126,255 L326,226" stroke="#cf6f24" stroke-width="5" fill="none" stroke-linecap="round"></path>
-            <text x="338" y="48" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">high trust</text>
-            <text x="338" y="70" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">follows the cue</text>
-            <text x="338" y="222" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#cf6f24">low trust</text>
-            <text x="338" y="244" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#cf6f24">discounts the cue</text>
-            <line x1="120" y1="40" x2="120" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
-            <line x1="120" y1="282" x2="330" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
-            <text x="240" y="314" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">Strength of the cue toward that element</text>
-            <text x="44" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 44 160)">Probability of selecting</text>
-            <text x="68" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 68 160)">a display element</text>
-          </svg>
-
-        </div>
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 580 340" role="img" aria-labelledby="trTitle" style="width:100%;height:auto;display:block;">
+          <title id="trTitle">Line chart: as a cue toward an element strengthens, high-trust users rise from about 15% to 90% probability of selecting it, while low-trust users rise only from about 13% to 25%.</title>
+          <line x1="136" y1="52" x2="370" y2="52" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="110" x2="370" y2="110" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="172" x2="370" y2="172" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="226" x2="370" y2="226" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="262" x2="370" y2="262" stroke="#e6e4df" stroke-width="1.5"></line>
+          <text x="126" y="58" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">90%</text>
+          <text x="126" y="116" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">75%</text>
+          <text x="126" y="178" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
+          <text x="126" y="232" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">25%</text>
+          <text x="126" y="268" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">10%</text>
+          <path d="M142,243 L366,43 L366,61 L142,255 Z" fill="#1C3557" opacity="0.16"></path>
+          <path d="M142,249 L366,52" stroke="#1C3557" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M142,249 L366,216 L366,236 L142,261 Z" fill="#E8883A" opacity="0.18"></path>
+          <path d="M142,255 L366,226" stroke="#cf6f24" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <text x="378" y="48" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">high trust</text>
+          <text x="378" y="70" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">follows the cue</text>
+          <text x="378" y="222" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#cf6f24">low trust</text>
+          <text x="378" y="244" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#cf6f24">discounts the cue</text>
+          <line x1="136" y1="40" x2="136" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <line x1="136" y1="282" x2="370" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <text x="253" y="314" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">Strength of the cue toward that element</text>
+          <text x="50" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 50 160)">Probability of selecting</text>
+          <text x="74" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 74 160)">a display element</text>
+        </svg>
       </div>
-      <figcaption><b>Left:</b> search accuracy by display complexity, in one condition of several; dashed line is chance (1 of 9), error bars are standard error. <b>Right:</b> modelled probability that a user selects a cued element as the cue strengthens, split by trust in the source; logit scale, bands are model uncertainty. Both figures are schematic representations of published results. <span class="fig-hint">Scroll the charts sideways to see both.</span></figcaption>
+      <figcaption>Model fit on a logit scale, labelled as probability. Bands are model uncertainty. Schematic.</figcaption>
     </figure>
 
-    <h3>Users can judge their own accuracy - but only sometimes</h3>
-    <p>The last extension asked whether self-report is worth anything. Users' confidence did predict whether they were actually right. But the accuracy of that self-assessment was not constant: it was strongest when users were cooperating with the signaller and when a visual aid made the signal easier to send, and it degraded when the goal was adversarial or the display was uniform.</p>
-    <p>That is a more useful result than a blanket "users don't know what they know." Self-report is a valid signal in some contexts and not others, and the model tells you which context you are in.</p>
+    <h2>User confidence is not always a valid measure</h2>
+    <p><b>Question.</b> Can a user's self-reported confidence in their attention-management ability be trusted?</p>
+    <p><b>Design.</b> Collected a confidence rating after every task and tested it against users' actual performance - whether they successfully communicated with their partner - comparing instances where users did and did not know their behaviour was being shared. Eye-tracking n=40 with telemetry n=326.</p>
+    <p><b>Result.</b> Confidence tracked performance when users knew they could be seen by their partner, but barely tracked performance when they thought they were not being observed. When users weren't managing their signals, their confidence had nothing to track, so their self-reports were inaccurate. <em>(Journal of Experimental Psychology: General, 2026.)</em></p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 580 330" role="img" aria-labelledby="cfTitle" style="width:100%;height:auto;display:block;">
+          <title id="cfTitle">Line chart: when users knew they could be seen, higher self-reported confidence predicted that their partner guessed correctly, rising from about 20% to 56%. When users thought they were acting privately, confidence barely predicted performance, rising only from about 26% to 31%.</title>
+          <line x1="144" y1="99" x2="344" y2="99" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="144" y1="196" x2="344" y2="196" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="144" y1="254" x2="344" y2="254" stroke="#e6e4df" stroke-width="1.5"></line>
+          <text x="134" y="105" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
+          <text x="134" y="202" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">25%</text>
+          <text x="134" y="260" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">10%</text>
+          <path d="M150,207 L340,60 L340,92 L150,223 Z" fill="#1C3557" opacity="0.16"></path>
+          <path d="M150,215 L340,76" stroke="#1C3557" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M150,182 L340,159 L340,187 L150,202 Z" fill="#E8883A" opacity="0.18"></path>
+          <path d="M150,192 L340,173" stroke="#cf6f24" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <text x="352" y="72" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1C3557">seen by others</text>
+          <text x="352" y="93" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1C3557">confidence tracks success</text>
+          <text x="352" y="168" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#cf6f24">acting privately</text>
+          <text x="352" y="189" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#cf6f24">confidence says little</text>
+          <line x1="144" y1="250" x2="344" y2="250" stroke="#8a8f98" stroke-width="2" stroke-dasharray="9 7"></line>
+          <line x1="144" y1="52" x2="144" y2="272" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <line x1="144" y1="272" x2="344" y2="272" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <text x="244" y="304" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">How confident the user felt</text>
+          <text x="52" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 52 162)">Partner guessed correctly</text>
+        </svg>
+      </div>
+      <figcaption>Model fit on a logit scale, labelled as probability. Dashed line is chance (1 in 9); bands are model uncertainty. Schematic.</figcaption>
+    </figure>
 
     <div class="method-card">
       <h4>Methodology</h4>
       <dl>
-        <dt>Program</dt><dd>10+ end-to-end studies, 2019 - 2025, N=1,600+</dd>
-        <dt>Design</dt><dd>Randomized, within-user; a two-person search-and-signal task built from scratch</dd>
-        <dt>Lab methods</dt><dd>Binocular and mobile eye-tracking, in-person moderated sessions</dd>
-        <dt>Scale methods</dt><dd>Task rebuilt in Python for online delivery; behavioural telemetry at roughly 10× lab sample</dd>
-        <dt>Analysis</dt><dd>Mixed-effects regression across 100,000+ observations; power analysis to right-size samples; reproducible R and Python pipelines under version control</dd>
+        <dt>Program</dt><dd>10+ end-to-end studies, 2019 – 2025, N=1,600+</dd>
+        <dt>Design</dt><dd>Randomized, within-user; a paired search-and-signal task built and validated from scratch</dd>
+        <dt>Lab</dt><dd>Binocular and mobile eye-tracking, in-person moderated sessions</dd>
+        <dt>Scale</dt><dd>Task rebuilt in Python for online delivery; telemetry at roughly 10× the lab sample, 100K+ observations per study</dd>
+        <dt>Analysis</dt><dd>Mixed-effects regression; power analysis to right-size samples; reproducible R and Python pipelines under version control</dd>
         <dt>Funding</dt><dd>$215K+ competitive, including NSERC CGS-D and CGS-M</dd>
-        <dt>Output</dt><dd>3 peer-reviewed papers published, 1 under revision; open data and code</dd>
       </dl>
     </div>
 
-    <h2>What it changes in a product</h2>
-    <div class="table-wrap"><table class="rtable">
-      <thead><tr><th>Finding</th><th>What a product team can do with it</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>Belief about a source moves decisions ~30 points, more than the content</td>
-          <td>Credibility signals, source badges, and ranking position can outweigh the thing they label. Products rarely measure this, and it differs across user segments.</td>
-        </tr>
-        <tr class="key">
-          <td>Complexity collapses performance at a threshold</td>
-          <td>Locating the threshold for your own surface turns "reduce clutter" into a defensible line - a criterion a design review can actually use.</td>
-        </tr>
-        <tr>
-          <td>Visibility of one's own activity changes behaviour independently of salience</td>
-          <td>In collaborative, presence-aware, or social products, users respond to what they think others can see about them, not only to what is on screen.</td>
-        </tr>
-        <tr>
-          <td>Confidence predicts accuracy, conditionally</td>
-          <td>Self-reported confidence is a usable metric where the model says it holds, and a misleading one elsewhere. Knowing the difference is the finding.</td>
-        </tr>
-      </tbody>
-    </table></div>
+    <h2>Research that earns adoption</h2>
+    <p>Six years of experiments demonstrated that how a user reads a screen is not a property of the screen. It moves with what they trust, who can see them, and how much information is on it. Adoption is decided in that gap, and that gap can be measured and reduced. The <a href="study-checkingin.html">CheckingIn case study</a> is the same problem from the applied side: HR leaders read the dashboard perfectly well and still did not know what to act on, so the interface worked and the product did not.</p>
+    <p>I apply research to this gap in two ways. First, choosing the approach fit to the question, decision, and constraints, including a willingness to rule out an unhelpful study. Second, building a measure from nothing. Not all research questions arrive with an established measurement approach. I state in advance what would prove hypotheses wrong, validate methods and data before trusting a result, and build the infrastructure that keeps it standing at speed: reproducible pipelines, documentation, collaborative or version-controlled workflows I invite the team into, and AI-assisted qualitative coding with researcher oversight.</p>
 
     <h2>Papers and code</h2>
     <div class="paper-ref">
@@ -228,7 +177,7 @@
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., Anderson, N. C., &amp; Kingstone, A. (2022). Eye spy: Gaze communication and deception during hide-and-seek. <em>Cognition, 227</em>, 105209.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., &amp; Kingstone, A. (2025). Perceived intent drives gaze interpretation. <em>Attention, Perception, &amp; Psychophysics, 87</em>, 2323–2331.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., &amp; Kingstone, A. (2026). Metacognition and the dual function of social gaze. <em>Journal of Experimental Psychology: General, 155</em>(8), 1967.</p>
-      <p class="paper-ref__apa">Gerlofs, D. J., et al. Visual complexity and search performance. Under revision.</p>
+      <p class="paper-ref__apa">Gerlofs, D. J., et al. Visual complexity and search performance. Under review.</p>
       <div class="paper-ref__links">
         <a class="chip" href="https://doi.org/10.1016/j.cognition.2022.105209">Cognition ↗</a>
         <a class="chip" href="https://doi.org/10.3758/s13414-025-03149-9">AP&amp;P ↗</a>
@@ -238,7 +187,7 @@
     </div>
 
     <div class="study-foot">
-      <a class="card__more" href="study-research-craft.html">Next: building the team and the method behind work like this →</a>
+      <a class="card__more" href="study-research-craft.html">Next: measuring attention coordination between two people →</a>
       <a href="index.html#research">← All three case studies</a>
     </div>
   </div>
