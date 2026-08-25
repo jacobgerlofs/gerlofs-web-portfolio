@@ -174,6 +174,16 @@ a.card { color: inherit; }
 .meta-strip { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .86rem; color: var(--ink-soft); margin-top: 18px; }
 .meta-strip span { display: inline-flex; gap: 6px; }
 .meta-strip b { color: var(--slate); font-weight: 600; }
+.meta-strip .outcome { display: block; flex-basis: 100%; margin-top: 2px; color: var(--amber-dark); font-weight: 600; }
+.meta-strip .outcome b { color: var(--amber-dark); }
+
+/* ---------- Per-finding product translation ---------- */
+.sowhat {
+  border-left: 3px solid var(--amber); background: #fbeede;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px; margin: 22px 0 0; font-size: .97rem; color: var(--ink-soft);
+}
+.sowhat b { color: var(--amber-dark); font-weight: 600; }
 .study-body h2 { margin-top: 46px; }
 .study-body h2:first-child { margin-top: 0; }
 

@@ -34,6 +34,7 @@
       <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
       <span><b>Methods:</b>&nbsp;Dual mobile eye-tracking, video, dialogue, time-series modelling</span>
       <span><b>Status:</b>&nbsp;Published</span>
+      <span class="outcome"><b>Outcome:</b>&nbsp;A working measure of real-time coordination, and researchers running sessions independently</span>
     </div>
   </div>
 </section>
@@ -50,8 +51,18 @@
     <p>We instrumented all of it simultaneously. Both participants wore binocular mobile eye-trackers. Fiducial markers between the paintings mapped each person's gaze onto the shared surface rather than only into their own headset video. A microphone captured dialogue and two participant-facing cameras captured pointing gestures. Every deictic gesture and verbal reference to a painting was defined in advance so it could be coded consistently.</p>
     <p>One design decision made the rest possible: an audiovisual cue played on the monitors in front of both participants and captured by all four video feeds. That single shared event is what everything else was later synchronized against.</p>
 
+    <h2>Adapting protocols and training researchers to run sessions</h2>
+    <p>A session meant two computers, two eye-trackers, two cameras, a calibration procedure that could fail silently, and a moderator staying present with two participants throughout. I could not be in the room for all of them, so researchers had to be able to run sessions independently.</p>
+    <p>I wrote a standardized testing protocol, then rebuilt it around explicit prioritization rather than strict adherence: which steps must be identical every time because the data depends on them, and where a researcher should adapt the procedure to their own workflow. Some wanted printed instruction scripts, some tagged equipment with handling prompts, some reordered steps that had no dependency between them. For researchers new to moderating, I paired that with observation of my sessions first, sitting in on their early ones with an immediate debrief afterwards, and tapering support as their data-quality checks came back clean.</p>
+    <p>Researchers reached independent session-running within a few weeks, with fewer failed sessions and no loss of rigour on the steps that carried the findings. One went on to supervise their own research assistants using a version of the same protocol.</p>
+
+    <h2>Deploying a collaborative version-control workflow</h2>
+    <p>The other bottleneck was analysis. Everyone on the team wrote their own R code for jobs that were largely the same - cleaning, modelling, plotting. People shared scripts on request, but there was no system, so someone could lose hours tracking down a colleague's code, or wait days for a collaborator to hand back a script before they could continue.</p>
+    <p>I learned a collaborative Git workflow and taught it to the team: a local repository, pushed to a personal remote, merged into a shared one that everyone syncs from. Presentations first, then hands-on workshops, then co-working on live projects until it was routine.</p>
+    <p>People on the same project could then write against the same scripts concurrently instead of passing files back and forth, which cut analysis time directly. The less expected effect was social: once the work lived in a shared repository, asking for help became reading a commit and contributing became a merge, so the team collaborated more because it cost less to do so.</p>
+
     <h2>Aligning four data streams at different sampling rates</h2>
-    <p>Most of the difficulty was here. The gaze cameras sampled at 200 Hz, scene video at 60 Hz, participant-facing cameras at 25 fps, and speech arrived as timestamped text with no fixed rate. Mobile eye-tracking of a moving, talking pair also loses samples to blinks and head movement; ours averaged 18%, which is normal for the method and still has to be handled rather than ignored.</p>
+    <p>With sessions running, the remaining difficulty was in the data.  The gaze cameras sampled at 200 Hz, scene video at 60 Hz, participant-facing cameras at 25 fps, and speech arrived as timestamped text with no fixed rate. Mobile eye-tracking of a moving, talking pair also loses samples to blinks and head movement; ours averaged 18%, which is normal for the method and still has to be handled rather than ignored.</p>
     <p>The pipeline came down to one decision: what temporal resolution can this dataset honestly support? The slowest stream set the answer. Everything was aligned on the shared audiovisual cue, then resampled to a common 5 Hz categorical time series, with mode-based smoothing applied to the noisiest channel. From there, cross-recurrence quantification analysis could test which behaviour leads which in time, both within a person and between the two of them.</p>
 
     <figure class="figure figure--wide">
@@ -131,16 +142,6 @@
     <p>Four minutes of conversation per pair across 26 pairs, with every painting reference needing a timestamp accurate to a fraction of a second. Hand-transcribing that is weeks of work and the bottleneck for the whole analysis.</p>
     <p>We processed the audio with an AI speech model to produce timestamped, word-aligned transcripts, then imported those into the annotation software alongside the video. That removed the transcription bottleneck.</p>
     <p>The model did not decide anything. Judging whether "the realistic one" or "your lower left one" refers to a specific painting is interpretation, so three coders blind to the hypotheses did that by hand, after training on a shared set and cross-checking one pair in common to establish interrater reliability before any of it counted. The model handled the mechanical layer and researchers handled the judgement layer, with the boundary defined before we started rather than justified afterwards.</p>
-
-    <h2>Adapting protocols and training researchers to run sessions</h2>
-    <p>A session meant two computers, two eye-trackers, two cameras, a calibration procedure that could fail silently, and a moderator staying present with two participants throughout. I could not be in the room for all of them, so researchers had to be able to run sessions independently.</p>
-    <p>I wrote a standardized testing protocol, then rebuilt it around explicit prioritization rather than strict adherence: which steps must be identical every time because the data depends on them, and where a researcher should adapt the procedure to their own workflow. Some wanted printed instruction scripts, some tagged equipment with handling prompts, some reordered steps that had no dependency between them. For researchers new to moderating, I paired that with observation of my sessions first, sitting in on their early ones with an immediate debrief afterwards, and tapering support as their data-quality checks came back clean.</p>
-    <p>Researchers reached independent session-running within a few weeks, with fewer failed sessions and no loss of rigour on the steps that carried the findings. One went on to supervise their own research assistants using a version of the same protocol.</p>
-
-    <h2>Deploying a collaborative version-control workflow</h2>
-    <p>The other bottleneck was analysis. Everyone on the team wrote their own R code for jobs that were largely the same - cleaning, modelling, plotting. People shared scripts on request, but there was no system, so someone could lose hours tracking down a colleague's code, or wait days for a collaborator to hand back a script before they could continue.</p>
-    <p>I learned a collaborative Git workflow and taught it to the team: a local repository, pushed to a personal remote, merged into a shared one that everyone syncs from. Presentations first, then hands-on workshops, then co-working on live projects until it was routine.</p>
-    <p>People on the same project could then write against the same scripts concurrently instead of passing files back and forth, which cut analysis time directly. The less expected effect was social: once the work lived in a shared repository, asking for help became reading a commit and contributing became a merge, so the team collaborated more because it cost less to do so.</p>
 
     <h2>Results</h2>
     <p>Gaze, pointing, and speech were all coupled above chance, within each person and between the pair - one system rather than three separate signals.</p>
