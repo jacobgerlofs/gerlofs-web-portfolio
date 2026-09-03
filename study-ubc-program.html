@@ -10,11 +10,12 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
-    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">☰</span></button>
     <nav class="nav__links" id="nav">
       <a href="index.html#research" class="active">Research portfolio</a>
       <a href="index.html#about">About</a>
@@ -23,6 +24,8 @@
     </nav>
   </div>
 </header>
+
+<main id="main" tabindex="-1">
 
 <section class="study-head">
   <div class="wrap read">
@@ -163,7 +166,7 @@
     </figure>
 
     <div class="method-card">
-      <h4>Methodology</h4>
+      <h3>Methodology</h3>
       <dl>
         <dt>Program</dt><dd>10+ end-to-end studies, 2019 – 2025, N=1,600+</dd>
         <dt>Design</dt><dd>Randomized, within-user; a paired search-and-signal task built and validated from scratch</dd>
@@ -180,7 +183,7 @@
 
     <h2>Papers and code</h2>
     <div class="paper-ref">
-      <h4>Published from this program</h4>
+      <h3>Published from this program</h3>
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., Anderson, N. C., &amp; Kingstone, A. (2022). Eye spy: Gaze communication and deception during hide-and-seek. <em>Cognition, 227</em>, 105209.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., &amp; Kingstone, A. (2025). Perceived intent drives gaze interpretation. <em>Attention, Perception, &amp; Psychophysics, 87</em>, 2323–2331.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., &amp; Kingstone, A. (2026). Metacognition and the dual function of social gaze. <em>Journal of Experimental Psychology: General, 155</em>(8), 1967.</p>
@@ -200,6 +203,8 @@
   </div>
 </section>
 
+</main>
+
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -218,6 +223,28 @@
     <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav__toggle');
+  var nav = document.getElementById('nav');
+  if (!toggle || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('open'));
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>

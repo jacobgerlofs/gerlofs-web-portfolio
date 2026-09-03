@@ -10,12 +10,13 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav__inner">
-    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
-    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <a class="brand" href="index.html" aria-current="page">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">☰</span></button>
     <nav class="nav__links" id="nav">
       <a href="index.html#research">Research portfolio</a>
       <a href="index.html#about">About</a>
@@ -24,6 +25,8 @@
     </nav>
   </div>
 </header>
+
+<main id="main" tabindex="-1">
 
 <!-- HERO -->
 <section class="hero">
@@ -192,12 +195,12 @@
         <div class="timeline" style="margin-top:0;">
           <div class="tl-item">
             <span class="tl-when">2019 – 2025</span>
-            <h4>Ph.D., Cognitive Neuroscience - University of British Columbia</h4>
+            <h3>Ph.D., Cognitive Neuroscience - University of British Columbia</h3>
             <p>Brain, Attention &amp; Reality Lab. Dissertation on social attention and decision-making; 10+ end-to-end studies across eye-tracking and large-scale behavioural experiments.</p>
           </div>
           <div class="tl-item">
             <span class="tl-when">2015 – 2019</span>
-            <h4>B.Sc. Psychology &amp; Neuroscience (Honours with Distinction) - Bishop's University</h4>
+            <h3>B.Sc. Psychology &amp; Neuroscience (Honours with Distinction) - Bishop's University</h3>
             <p>Minor in Drama Studies. Lab coordinator in human behavioural research; graduated with distinction.</p>
           </div>
         </div>
@@ -237,7 +240,7 @@
       <p class="sublabel">Skills &amp; methods</p>
       <div class="skills-2">
         <div class="skillcol">
-          <h4>Research methods</h4>
+          <h3>Research methods</h3>
           <div class="pills">
             <span class="pill">Mixed-methods UXR</span>
             <span class="pill">A/B testing</span>
@@ -252,7 +255,7 @@
           </div>
         </div>
         <div class="skillcol">
-          <h4>Data &amp; analysis</h4>
+          <h3>Data &amp; analysis</h3>
           <div class="pills">
             <span class="pill">SQL</span>
             <span class="pill">Python</span>
@@ -264,7 +267,7 @@
           </div>
         </div>
         <div class="skillcol">
-          <h4>Research ops &amp; AI</h4>
+          <h3>Research ops &amp; AI</h3>
           <div class="pills">
             <span class="pill">Reproducible, scalable pipelines</span>
             <span class="pill">Git &amp; GitHub</span>
@@ -274,7 +277,7 @@
           </div>
         </div>
         <div class="skillcol">
-          <h4>Strategy &amp; communication</h4>
+          <h3>Strategy &amp; communication</h3>
           <div class="pills">
             <span class="pill">Product strategy &amp; roadmapping</span>
             <span class="pill">Long-term research planning</span>
@@ -305,6 +308,8 @@
 </section>
 
 <!-- FOOTER -->
+</main>
+
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -325,6 +330,28 @@
     <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav__toggle');
+  var nav = document.getElementById('nav');
+  if (!toggle || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('open'));
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>

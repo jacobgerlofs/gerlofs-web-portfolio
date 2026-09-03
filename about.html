@@ -2,11 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=index.html#about">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Jake Gerlofs</title>
+<meta name="description" content="About Jake Gerlofs, behavioural scientist and UX researcher based in Vancouver, BC.">
 <link rel="canonical" href="index.html#about">
-<title>About — Jake Gerlofs</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<p>Redirecting to <a href="index.html#about">the About section</a>…</p>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">&#9776;</span></button>
+    <nav class="nav__links" id="nav">
+      <a href="index.html#research">Research portfolio</a>
+      <a href="index.html#about" aria-current="page">About</a>
+      <a href="index.html#education">Education &amp; training</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="section">
+    <div class="wrap read">
+      <h1>About</h1>
+      <p class="lead">I&rsquo;m a behavioural scientist and applied researcher based in Vancouver, BC &mdash; mostly asking why people do what they do, and what that means for the products they use.</p>
+      <p>The full About section lives on the homepage, alongside my research portfolio and training.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="index.html#about">Read the About section</a>
+        <a class="btn btn--ghost" href="index.html#research">View my research</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Jake Gerlofs<span>.</span></div>
+        <p class="footer__tag">Behavioural scientist &amp; applied researcher. Attention, decision-making, and what happens in between.</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education &amp; training</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://linkedin.com/in/jgerlofs">LinkedIn</a>
+        <a href="https://github.com/jacobgerlofs">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__fine">&copy; 2026 Jake Gerlofs &middot; Vancouver, BC &middot; jacobgerlofs1@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav__toggle');
+  var nav = document.getElementById('nav');
+  if (!toggle || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); toggle.focus(); }
+  });
+})();
+</script>
 </body>
 </html>

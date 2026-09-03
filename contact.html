@@ -10,11 +10,12 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
-    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">☰</span></button>
     <nav class="nav__links" id="nav">
       <a href="index.html#research">Research portfolio</a>
       <a href="index.html#about">About</a>
@@ -23,6 +24,8 @@
     </nav>
   </div>
 </header>
+
+<main id="main" tabindex="-1">
 
 <section class="hero">
   <div class="wrap read">
@@ -39,6 +42,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="footer">
   <div class="wrap">
@@ -60,6 +65,28 @@
     <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav__toggle');
+  var nav = document.getElementById('nav');
+  if (!toggle || !nav) return;
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('open'));
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
