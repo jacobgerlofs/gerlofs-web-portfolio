@@ -112,6 +112,23 @@ strong { font-weight: 600; }
 .skills-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px 34px; }
 @media (max-width: 860px) { .skills-2 { grid-template-columns: 1fr; } .hero-photo { width: 240px; } }
 
+/* ---------- About: text + photo collage ---------- */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 44px; align-items: start; }
+.about-copy { max-width: var(--read); }
+.about-photos { position: relative; padding-top: 34px; display: flex; flex-direction: column; align-items: flex-start; }
+.about-photo {
+  width: 208px; height: 208px; object-fit: cover; display: block;
+  border: 6px solid #fff; border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(28,53,87,.08), 0 18px 40px -16px rgba(28,53,87,.34);
+}
+.about-photo--a { transform: rotate(-4deg); }
+.about-photo--b { transform: rotate(3.5deg); margin-top: -52px; margin-left: 96px; position: relative; z-index: 2; }
+@media (max-width: 980px) {
+  .about-grid { grid-template-columns: 1fr; gap: 8px; }
+  .about-photos { padding-top: 6px; padding-bottom: 26px; align-items: center; }
+  .about-photo--b { margin-left: 84px; }
+}
+
 /* ---------- Stats bar ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .stat { text-align: center; padding: 8px; }
