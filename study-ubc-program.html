@@ -10,12 +10,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
-    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">☰</span></button>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <nav class="nav__links" id="nav">
       <a href="index.html#research" class="active">Research portfolio</a>
       <a href="index.html#about">About</a>
@@ -24,8 +23,6 @@
     </nav>
   </div>
 </header>
-
-<main id="main" tabindex="-1">
 
 <section class="study-head">
   <div class="wrap read">
@@ -49,6 +46,44 @@
     <p>People rarely use a product unobserved. Activity is visible to teammates, managers, whoever shares the document - and the moment someone knows they can be seen, their behaviour changes. That makes attention serve two functions: the eyes gather information, and they also give it away.</p>
     <p>No established method existed to measure how behaviour changes as we balance these functions, so I built one. I paired users. The first navigated a display and selected a target while their gaze was recorded, sometimes trying to help their partner find it, sometimes trying to hide it. The second then watched that gaze, navigated the same display, and guessed the choice. That gives two measures from one task: what the first user gave away while trying to do their own job, and how the second user read it.</p>
     <p>Each study below varies one part of that exchange. Each was randomized, within-user, and modelled with mixed-effects regression. Most ran in the lab and were rebuilt in Python to run online at roughly ten times the sample - 100K+ observations per study. What follows is a sample of six years of self-managed research: 10+ studies, N=1,600+, and $215K in competitive funding, delivered on time and budget.</p>
+
+    <figure class="figure figure--wide">
+      <div class="figure-frame figure-frame--wide">
+          <svg viewBox="0 34 1010 196" role="img" aria-labelledby="progTitle" style="width:100%;height:auto;display:block;">
+          <title id="progTitle">Structure of the research program: a question with no existing way to measure it, the paired gaze task built from nothing, validated and published in Cognition in 2022, rebuilt in Python for online scale, then extended in three directions - display complexity, trust in the cue, and self-reported confidence.</title>
+          <line x1="26" y1="130" x2="600" y2="130" stroke="#b9b6ae" stroke-width="2.5"/>
+          <line x1="95" y1="121" x2="95" y2="103" stroke="#c9c5bc" stroke-width="2"/>
+          <circle cx="95" cy="130" r="9" fill="#1C3557"/>
+          <text x="95" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">No existing</text>
+          <text x="95" y="97" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">way to measure it</text>
+          <line x1="245" y1="139" x2="245" y2="157" stroke="#c9c5bc" stroke-width="2"/>
+          <circle cx="245" cy="130" r="9" fill="#E8883A"/>
+          <text x="245" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#cf6f24">Paired gaze task</text>
+          <text x="245" y="199" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#cf6f24">built from nothing</text>
+          <line x1="395" y1="121" x2="395" y2="103" stroke="#c9c5bc" stroke-width="2"/>
+          <circle cx="395" cy="130" r="9" fill="#1C3557"/>
+          <text x="395" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Validated and published</text>
+          <text x="395" y="97" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">(Cognition 2022)</text>
+          <line x1="545" y1="139" x2="545" y2="157" stroke="#c9c5bc" stroke-width="2"/>
+          <circle cx="545" cy="130" r="9" fill="#1C3557"/>
+          <text x="545" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Rebuilt in Python</text>
+          <text x="545" y="199" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">for online scale</text>
+          <path d="M600,130 C650,130 655,60 700,60" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="60" r="8" fill="#1C3557"/>
+          <text x="723" y="56" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Display complexity</text>
+          <text x="723" y="77" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">how much is on screen</text>
+          <path d="M600,130 C650,130 655,130 700,130" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="130" r="8" fill="#1C3557"/>
+          <text x="723" y="126" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Trust in the cue</text>
+          <text x="723" y="147" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">beliefs about the other person</text>
+          <path d="M600,130 C650,130 655,200 700,200" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="200" r="8" fill="#1C3557"/>
+          <text x="723" y="196" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Self-reported confidence</text>
+          <text x="723" y="217" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">can users judge themselves</text>
+          </svg>
+      </div>
+      <figcaption>Structure of the research program: one measure built from nothing, then extended in three directions. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
+    </figure>
 
     <h2>Display complexity degrades attention management</h2>
     <p><b>Question.</b> Can users balance their attentional signals in visually complex computer displays?</p>
@@ -166,7 +201,7 @@
     </figure>
 
     <div class="method-card">
-      <h3>Methodology</h3>
+      <h4>Methodology</h4>
       <dl>
         <dt>Program</dt><dd>10+ end-to-end studies, 2019 – 2025, N=1,600+</dd>
         <dt>Design</dt><dd>Randomized, within-user; a paired search-and-signal task built and validated from scratch</dd>
@@ -183,7 +218,7 @@
 
     <h2>Papers and code</h2>
     <div class="paper-ref">
-      <h3>Published from this program</h3>
+      <h4>Published from this program</h4>
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., Anderson, N. C., &amp; Kingstone, A. (2022). Eye spy: Gaze communication and deception during hide-and-seek. <em>Cognition, 227</em>, 105209.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., &amp; Kingstone, A. (2025). Perceived intent drives gaze interpretation. <em>Attention, Perception, &amp; Psychophysics, 87</em>, 2323–2331.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., &amp; Kingstone, A. (2026). Metacognition and the dual function of social gaze. <em>Journal of Experimental Psychology: General, 155</em>(8), 1967.</p>
@@ -203,8 +238,6 @@
   </div>
 </section>
 
-</main>
-
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -223,28 +256,6 @@
     <div class="footer__fine">© 2026 Jake Gerlofs · Vancouver, BC · jacobgerlofs1@gmail.com</div>
   </div>
 </footer>
-
-<script>
-(function () {
-  var toggle = document.querySelector('.nav__toggle');
-  var nav = document.getElementById('nav');
-  if (!toggle || !nav) return;
-  function setOpen(open) {
-    nav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  toggle.addEventListener('click', function () {
-    setOpen(!nav.classList.contains('open'));
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && nav.classList.contains('open')) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-})();
-</script>
 
 </body>
 </html>
