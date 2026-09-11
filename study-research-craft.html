@@ -10,12 +10,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">Jake Gerlofs<span>.</span></a>
-    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span aria-hidden="true">☰</span></button>
+    <button class="nav__toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <nav class="nav__links" id="nav">
       <a href="index.html#research" class="active">Research portfolio</a>
       <a href="index.html#about">About</a>
@@ -25,13 +24,11 @@
   </div>
 </header>
 
-<main id="main" tabindex="-1">
-
 <section class="study-head">
   <div class="wrap read">
     <div class="badges"><span class="badge badge--pub">Published</span><span class="badge">Cognitive Science · 2025</span><span class="badge">26 pairs · N=52</span><span class="badge badge--slate">Co-first author</span></div>
     <h1>Measuring attention coordination between two users, and building the team that ran it.</h1>
-    <p class="lead">Coordination between two people had no off-the-shelf measure. Building one meant designing the task, recording four streams of behaviour at once, aligning them onto a single timeline, and training junior researchers to run the sessions without me in the room.</p>
+    <p class="lead">Coordination between two people had no off-the-shelf measure. Building one meant designing the task, getting four recording devices onto a shared clock, training junior researchers to run the sessions without me in the room, and then aligning everything those devices captured onto a single timeline.</p>
     <div class="meta-strip">
       <span><b>Role:</b>&nbsp;Co-lead researcher (co-first author)</span>
       <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
@@ -49,10 +46,58 @@
     <p>Collaborative products - shared documents, co-browsing, multiplayer, XR - assume that showing each person what the other is doing is enough for them to coordinate. That assumption had not been tested directly, because there was no way to measure coordination between two people as it happened.</p>
     <p>Measuring one user is tractable. Measuring the system two users form is a different problem. Coordination is not a state you can sample at a point in time; it is a relationship between behaviours unfolding across modalities, in both directions. No off-the-shelf instrument existed, so we built one.</p>
 
-    <h2>Designing the task and the instrumentation</h2>
+    <figure class="figure figure--wide">
+      <div class="figure-frame figure-frame--wide">
+          <svg viewBox="0 0 1010 200" role="img" aria-labelledby="craftMapTitle" style="width:100%;height:auto;display:block;">
+          <title id="craftMapTitle">Timeline of stages in the research project: no two-person measure existed, the task was designed and instrumented, the hardware was piloted until all four feeds aligned, a protocol was written and researchers trained, sessions were run with twenty-six pairs, a collaborative Git workflow was taught to the team, speech was transcribed by an AI model and coded by hand, the streams were resampled onto one timeline, and coupling was found across all channels.</title>
+          <defs><marker id="craftArw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9b6ae"></path></marker></defs>
+          <line x1="26" y1="102" x2="972" y2="102" stroke="#b9b6ae" stroke-width="2.5" marker-end="url(#craftArw)"></line>
+          <line x1="78.0" y1="93" x2="78.0" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="78.0" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="78.0" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">No two-person</text>
+          <text x="78.0" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">measure existed</text>
+          <line x1="183.9" y1="111" x2="183.9" y2="129" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="183.9" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="183.9" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Task designed</text>
+          <text x="183.9" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">and instrumented</text>
+          <line x1="289.8" y1="93" x2="289.8" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="289.8" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="289.8" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Hardware piloted</text>
+          <text x="289.8" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">until feeds aligned</text>
+          <line x1="395.6" y1="111" x2="395.6" y2="129" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="395.6" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="395.6" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Protocol written,</text>
+          <text x="395.6" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">researchers trained</text>
+          <line x1="501.5" y1="93" x2="501.5" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="501.5" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="501.5" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Sessions run</text>
+          <text x="501.5" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">with 26 pairs</text>
+          <line x1="607.4" y1="111" x2="607.4" y2="129" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="607.4" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="607.4" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Git workflow</text>
+          <text x="607.4" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">taught to the team</text>
+          <line x1="713.2" y1="93" x2="713.2" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="713.2" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="713.2" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">AI transcription,</text>
+          <text x="713.2" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">human coding</text>
+          <line x1="819.1" y1="111" x2="819.1" y2="129" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="819.1" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="819.1" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Streams resampled</text>
+          <text x="819.1" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">onto one timeline</text>
+          <line x1="925.0" y1="93" x2="925.0" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
+          <circle cx="925.0" cy="102" r="9" fill="#1C3557"></circle>
+          <text x="925.0" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Coupling found</text>
+          <text x="925.0" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">across all channels</text>
+          </svg>
+      </div>
+      <figcaption>Timeline of stages in the research project. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
+    </figure>
+
+    <h2>Designing the task and aligning the instrumentation</h2>
     <p>We seated pairs face-to-face across a table with six impressionist paintings mounted on the partition between them, arranged so each partner could see both the paintings and the other person's face. The task was to agree on a ranking within four minutes. The task is deliberately mundane: it produces natural conversation, disagreement, and frequent pointing, without requiring any expertise from participants.</p>
     <p>We instrumented all of it simultaneously. Both participants wore binocular mobile eye-trackers. Fiducial markers between the paintings mapped each person's gaze onto the shared surface rather than only into their own headset video. A microphone captured dialogue and two participant-facing cameras captured pointing gestures. Every deictic gesture and verbal reference to a painting was defined in advance so it could be coded consistently.</p>
-    <p>One design decision made the rest possible: an audiovisual cue played on the monitors in front of both participants and captured by all four video feeds. That single shared event is what everything else was later synchronized against.</p>
+    <p>Four devices recording the same four minutes do not agree on when anything happened, and that had to be solved before we collected data rather than after. One design decision carried it: an audiovisual cue played on the monitors in front of both participants, positioned so all four feeds captured it. That single shared event is the reference every recording was later synchronized against.</p>
+    <p>The rest was piloting. We ran the full setup repeatedly to confirm the cue actually landed in every feed, that the marker-based surface mapping held while people moved and talked rather than only while they sat still, and that a session produced recordings we could line up afterwards. Sessions with participants only started once the rig cleared that bar, since a session that fails is a pair you cannot simply run again.</p>
 
     <h2>Adapting protocols and training researchers to run sessions</h2>
     <p>A session meant two computers, two eye-trackers, two cameras, a calibration procedure that could fail silently, and a moderator staying present with two participants throughout. I could not be in the room for all of them, so researchers had to be able to run sessions independently.</p>
@@ -64,9 +109,14 @@
     <p>I learned a collaborative Git workflow and taught it to the team: a local repository, pushed to a personal remote, merged into a shared one that everyone syncs from. Presentations first, then hands-on workshops, then co-working on live projects until it was routine.</p>
     <p>People on the same project could then write against the same scripts concurrently instead of passing files back and forth, which cut analysis time directly. The less expected effect was social: once the work lived in a shared repository, asking for help became reading a commit and contributing became a merge, so the team collaborated more because it cost less to do so.</p>
 
+    <h2>AI transcription with human coding</h2>
+    <p>Four minutes of conversation per pair across 26 pairs, with every painting reference needing a timestamp accurate to a fraction of a second. Hand-transcribing that is weeks of work and the bottleneck for the whole analysis.</p>
+    <p>We processed the audio with an AI speech model to produce timestamped, word-aligned transcripts, then imported those into the annotation software alongside the video. That removed the transcription bottleneck.</p>
+    <p>The model did not decide anything. Judging whether "the realistic one" or "your lower left one" refers to a specific painting is interpretation, so three coders blind to the hypotheses did that by hand, after training on a shared set and cross-checking one pair in common to establish interrater reliability before any of it counted. The model handled the mechanical layer and researchers handled the judgement layer, with the boundary defined before we started rather than justified afterwards.</p>
+
     <h2>Aligning four data streams at different sampling rates</h2>
-    <p>With sessions running, the remaining difficulty was in the data.  The gaze cameras sampled at 200 Hz, scene video at 60 Hz, participant-facing cameras at 25 fps, and speech arrived as timestamped text with no fixed rate. Mobile eye-tracking of a moving, talking pair also loses samples to blinks and head movement; ours averaged 18%, which is normal for the method and still has to be handled rather than ignored.</p>
-    <p>The pipeline came down to one decision: what temporal resolution can this dataset honestly support? The slowest stream set the answer. Everything was aligned on the shared audiovisual cue, then resampled to a common 5 Hz categorical time series, with mode-based smoothing applied to the noisiest channel. From there, cross-recurrence quantification analysis could test which behaviour leads which in time, both within a person and between the two of them.</p>
+    <p>Getting the hardware onto a shared clock solved when each device thought something happened. It did not solve the second alignment problem, which only appeared once there were recordings to work with: the four streams do not tick at the same speed. The gaze cameras sampled at 200 Hz, scene video at 60 Hz, participant-facing cameras at 25 fps, and speech arrived as timestamped text with no fixed rate. Mobile eye-tracking of a moving, talking pair also loses samples to blinks and head movement; ours averaged 18%, which is normal for the method and still has to be handled rather than ignored.</p>
+    <p>This pipeline came down to one decision: what temporal resolution can this dataset honestly support? The slowest stream set the answer. Everything was aligned on the shared audiovisual cue, then resampled to a common 5 Hz categorical time series, with mode-based smoothing applied to the noisiest channel. From there, cross-recurrence quantification analysis could test which behaviour leads which in time, both within a person and between the two of them.</p>
 
     <figure class="figure figure--wide">
       <div class="figure-frame figure-frame--wide">
@@ -141,11 +191,6 @@
       <figcaption>Four capture streams at four sampling rates, aligned on a single shared cue and resampled to the resolution the slowest stream can support. Schematic. <span class="fig-hint">Scroll the diagram sideways to see all of it.</span></figcaption>
     </figure>
 
-    <h2>AI transcription with human coding</h2>
-    <p>Four minutes of conversation per pair across 26 pairs, with every painting reference needing a timestamp accurate to a fraction of a second. Hand-transcribing that is weeks of work and the bottleneck for the whole analysis.</p>
-    <p>We processed the audio with an AI speech model to produce timestamped, word-aligned transcripts, then imported those into the annotation software alongside the video. That removed the transcription bottleneck.</p>
-    <p>The model did not decide anything. Judging whether "the realistic one" or "your lower left one" refers to a specific painting is interpretation, so three coders blind to the hypotheses did that by hand, after training on a shared set and cross-checking one pair in common to establish interrater reliability before any of it counted. The model handled the mechanical layer and researchers handled the judgement layer, with the boundary defined before we started rather than justified afterwards.</p>
-
     <h2>Results</h2>
     <p>Gaze, pointing, and speech were all coupled above chance, within each person and between the pair - one system rather than three separate signals.</p>
     <ul class="awards">
@@ -160,17 +205,17 @@
     <p>For shared screens, co-browsing, multiplayer, and XR, a coordination affordance is not decoration on top of presence. It does the work that gesture does in person.</p>
 
     <div class="paper-ref">
-      <h3>Full APA reference</h3>
+      <h4>Full APA reference</h4>
       <p class="paper-ref__apa">Haraped, L., Gerlofs, D. J., Huang, O. C. H., Hickling, C., Bischof, W. F., Sachse, P., &amp; Kingstone, A. (2025). Coordinating attention in face-to-face collaboration: The dynamics of gaze, pointing, and verbal reference. Cognitive Science, 49(10), Article e70123. https://doi.org/10.1111/cogs.70123</p>
       <div class="paper-ref__links">
-        <button class="paper-ref__copy" type="button" aria-live="polite" onclick="copyRef(this)">Copy APA reference</button>
+        <button class="paper-ref__copy" onclick="copyRef(this)">Copy APA reference</button>
         <a class="chip" href="https://doi.org/10.1111/cogs.70123">Read the paper ↗</a>
       </div>
       <div class="paper-ref__note">Shared first authorship.</div>
     </div>
 
     <div class="method-card">
-      <h3>Methodology</h3>
+      <h4>Methodology</h4>
       <dl>
         <dt>Design</dt><dd>26 face-to-face dyads (N=52), collaborative ranking task, four minutes of free conversation</dd>
         <dt>Capture</dt><dd>Two binocular mobile eye-trackers, fiducial-marker surface mapping, microphone, two participant-facing cameras</dd>
@@ -188,8 +233,6 @@
     </div>
   </div>
 </section>
-
-</main>
 
 <footer class="footer">
   <div class="wrap">
@@ -213,27 +256,5 @@
 <script>
 function copyRef(btn){var box=btn.closest(".paper-ref");var apa=box.querySelector(".paper-ref__apa");if(!apa)return;navigator.clipboard.writeText(apa.innerText).then(function(){var o=btn.textContent;btn.textContent="Copied ✓";setTimeout(function(){btn.textContent=o;},1500);});}
 </script>
-<script>
-(function () {
-  var toggle = document.querySelector('.nav__toggle');
-  var nav = document.getElementById('nav');
-  if (!toggle || !nav) return;
-  function setOpen(open) {
-    nav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  toggle.addEventListener('click', function () {
-    setOpen(!nav.classList.contains('open'));
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && nav.classList.contains('open')) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-})();
-</script>
-
 </body>
 </html>
