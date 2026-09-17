@@ -28,13 +28,13 @@
   <div class="wrap read">
     <div class="badges"><span class="badge badge--pub">Peer-reviewed</span><span class="badge">Eye-tracking + online experiments</span><span class="badge">N=1,600+</span></div>
     <h1>How people's attention and decisions change when they know someone else can see what they are doing.</h1>
-    <p class="lead">A question with no established way to be measured. I built the measure, then extended it in three directions: how much information is on screen, how beliefs about another person bias decisions, and whether users can judge their own performance.</p>
+    <p class="lead">A question with no established way to be measured. I built the measure, then extended it in four directions: how much information is on screen, how beliefs about another person bias decisions, whether users can judge their own performance, and whether every user segment reads the same signal the same way.</p>
     <div class="meta-strip">
       <span><b>Role:</b>&nbsp;Mixed-methods UX Researcher</span>
       <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
       <span><b>Span:</b>&nbsp;Sep 2019 – Aug 2025</span>
       <span><b>Methods:</b>&nbsp;Eye-tracking, online experiments, mixed-effects modelling</span>
-      <span class="outcome"><b>Outcome:</b>&nbsp;A validated measure where none existed, and three findings on what moves user decisions</span>
+      <span class="outcome"><b>Outcome:</b>&nbsp;A validated measure where none existed, and four findings on what moves user decisions</span>
     </div>
   </div>
 </section>
@@ -45,12 +45,19 @@
     <h2>The question</h2>
     <p>People rarely use a product unobserved. Activity is visible to teammates, managers, whoever shares the document - and the moment someone knows they can be seen, their behaviour changes. That makes attention serve two functions: the eyes gather information, and they also give it away.</p>
     <p>No established method existed to measure how behaviour changes as we balance these functions, so I built one. I paired users. The first navigated a display and selected a target while their gaze was recorded, sometimes trying to help their partner find it, sometimes trying to hide it. The second then watched that gaze, navigated the same display, and guessed the choice. That gives two measures from one task: what the first user gave away while trying to do their own job, and how the second user read it.</p>
-    <p>Each study below varies one part of that exchange. Each was randomized, within-user, and modelled with mixed-effects regression. Most ran in the lab and were rebuilt in Python to run online at roughly ten times the sample - 100K+ observations per study. What follows is a sample of six years of self-managed research: 10+ studies, N=1,600+, and $215K in competitive funding, delivered on time and budget.</p>
+    <p>Each study below varies one part of that exchange. All were randomized, within-user, and modelled with mixed-effects regression. I rebuilt the lab protocols as browser-based studies on an open-source stack I taught myself - no tooling cost to the lab, and roughly ten times the lab sample - 100K+ observations per study.</p>
+
+    <ul class="awards">
+      <li><b>Three times the weekly data collection</b> once studies ran remotely and asynchronously.</li>
+      <li><b>Sessions about 20% shorter</b>, sized from prior effect sizes with no loss of validity - which is what made running studies in parallel affordable.</li>
+    </ul>
+
+    <p>What follows is a sample of six years of self-managed research: 10+ studies, N=1,600+, and $215K in competitive funding, delivered on time and budget.</p>
 
     <figure class="figure figure--wide">
       <div class="figure-frame figure-frame--wide">
-          <svg viewBox="0 34 1010 196" role="img" aria-labelledby="progTitle" style="width:100%;height:auto;display:block;">
-          <title id="progTitle">Structure of the research program: a question with no existing way to measure it, the paired gaze task built from nothing, validated and published in Cognition in 2022, rebuilt in Python for online scale, then extended in three directions - display complexity, trust in the cue, and self-reported confidence.</title>
+          <svg viewBox="0 16 1010 232" role="img" aria-labelledby="progTitle" style="width:100%;height:auto;display:block;">
+          <title id="progTitle">Structure of the research program: a question with no existing way to measure it, the paired gaze task built from nothing, validated and published in Cognition in 2022, rebuilt in Python for online scale, then extended in four directions - display complexity, trust in the cue, self-reported confidence, and differences between users.</title>
           <line x1="26" y1="130" x2="600" y2="130" stroke="#b9b6ae" stroke-width="2.5"/>
           <line x1="95" y1="121" x2="95" y2="103" stroke="#c9c5bc" stroke-width="2"/>
           <circle cx="95" cy="130" r="9" fill="#1C3557"/>
@@ -68,21 +75,25 @@
           <circle cx="545" cy="130" r="9" fill="#1C3557"/>
           <text x="545" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Rebuilt in Python</text>
           <text x="545" y="199" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">for online scale</text>
-          <path d="M600,130 C650,130 655,60 700,60" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
-          <circle cx="705" cy="60" r="8" fill="#1C3557"/>
-          <text x="723" y="56" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Display complexity</text>
-          <text x="723" y="77" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">how much is on screen</text>
-          <path d="M600,130 C650,130 655,130 700,130" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
-          <circle cx="705" cy="130" r="8" fill="#1C3557"/>
-          <text x="723" y="126" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Trust in the cue</text>
-          <text x="723" y="147" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">beliefs about the other person</text>
-          <path d="M600,130 C650,130 655,200 700,200" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
-          <circle cx="705" cy="200" r="8" fill="#1C3557"/>
-          <text x="723" y="196" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Self-reported confidence</text>
-          <text x="723" y="217" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">can users judge themselves</text>
+          <path d="M600,130 C650,130 655,40 700,40" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="40" r="8" fill="#1C3557"/>
+          <text x="723" y="36" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Display complexity</text>
+          <text x="723" y="57" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">how much is on screen</text>
+          <path d="M600,130 C650,130 655,100 700,100" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="100" r="8" fill="#1C3557"/>
+          <text x="723" y="96" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Trust in the cue</text>
+          <text x="723" y="117" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">beliefs about the other person</text>
+          <path d="M600,130 C650,130 655,160 700,160" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="160" r="8" fill="#1C3557"/>
+          <text x="723" y="156" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Self-reported confidence</text>
+          <text x="723" y="177" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">can users judge themselves</text>
+          <path d="M600,130 C650,130 655,220 700,220" fill="none" stroke="#b9b6ae" stroke-width="2.5"/>
+          <circle cx="705" cy="220" r="8" fill="#1C3557"/>
+          <text x="723" y="216" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Differences between users</text>
+          <text x="723" y="237" text-anchor="start" font-family="Inter, sans-serif" font-size="17" font-weight="400" fill="#45474a">who is reading the signal</text>
           </svg>
       </div>
-      <figcaption>Structure of the research program: one measure built from nothing, then extended in three directions. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
+      <figcaption>Structure of the research program: one measure built from nothing, then extended in four directions. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
     </figure>
 
     <h2>Display complexity degrades attention management</h2>
@@ -200,6 +211,45 @@
       <figcaption>Model fit on a logit scale, labelled as probability. Dashed line is chance (1 in 9); bands are model uncertainty. Schematic.</figcaption>
     </figure>
 
+    <h2>Segment differences show up where context has to be integrated</h2>
+    <p><b>Question.</b> Does the trust effect hold for every user, or do some segments read the same cue differently?</p>
+    <p><b>Design.</b> Split users by the AQ-10 screening threshold for autistic traits. One experiment said nothing about the other person's intent (n=110); a second told half the users they were being cooperated with and half that they were being deceived (n=242). Same task, same stimuli, one added variable.</p>
+    <p><b>Result.</b> With nothing said about intent the two groups were indistinguishable - same accuracy, same weighting of the signal. They diverged only once a belief about the other person had to be folded in, and only under low trust: lower-trait users turned away from the most-looked-at element, higher-trait users went on reading it. <em>(Report under review.)</em></p>
+
+    <p class="sowhat"><b>For a product team.</b> Benchmark the bare interaction and your segments will look the same. The difference appears where users combine the interface with something they have been told about it - a warning, a source label, a trust badge. Test the segment there, or you will report a parity your product does not have.</p>
+
+    <figure class="figure">
+      <div class="figure-frame">
+        <svg viewBox="0 0 580 340" role="img" aria-labelledby="sgTitle" style="width:100%;height:auto;display:block;">
+          <title id="sgTitle">Line chart on the same axes as the trust figure. Under high trust, users with higher and with lower autistic-trait scores both follow the cue and their lines sit on top of each other. Under low trust the two segments separate: users with lower trait scores turn away from the most-looked-at element, while users with higher trait scores stay roughly flat.</title>
+          <line x1="136" y1="52" x2="370" y2="52" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="110" x2="370" y2="110" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="172" x2="370" y2="172" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="226" x2="370" y2="226" stroke="#e6e4df" stroke-width="1.5"></line>
+          <line x1="136" y1="262" x2="370" y2="262" stroke="#e6e4df" stroke-width="1.5"></line>
+          <text x="126" y="58" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">90%</text>
+          <text x="126" y="116" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">75%</text>
+          <text x="126" y="178" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">50%</text>
+          <text x="126" y="232" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">25%</text>
+          <text x="126" y="268" text-anchor="end" font-family="Inter, sans-serif" font-size="17" fill="#45474a">10%</text>
+          <path d="M142,255 L366,66" stroke="#1C3557" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="14 10"></path>
+          <path d="M142,249 L366,54" stroke="#1C3557" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M142,232 L366,224" stroke="#cf6f24" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="14 10"></path>
+          <path d="M142,232 L366,262" stroke="#cf6f24" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <text x="378" y="58" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">high trust</text>
+          <text x="378" y="79" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#1C3557">both segments alike</text>
+          <text x="378" y="216" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#cf6f24">low trust, higher traits</text>
+          <text x="378" y="270" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#cf6f24">low trust, lower traits</text>
+          <line x1="136" y1="40" x2="136" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <line x1="136" y1="282" x2="370" y2="282" stroke="#b9b6ae" stroke-width="1.5"></line>
+          <text x="253" y="314" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a">Strength of the cue toward that element</text>
+          <text x="50" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 50 160)">Probability of selecting</text>
+          <text x="74" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#45474a" transform="rotate(-90 74 160)">a display element</text>
+        </svg>
+      </div>
+      <figcaption>The trust figure above, split by user segment. Solid lines are users below the AQ-10 screening threshold; dashed at or above. Model fit on a logit scale, labelled as probability. Schematic.</figcaption>
+    </figure>
+
     <div class="method-card">
       <h4>Methodology</h4>
       <dl>
@@ -213,8 +263,8 @@
     </div>
 
     <h2>Research that earns adoption</h2>
-    <p>Six years of experiments demonstrated that how a user reads a screen is not a property of the screen. It moves with what they trust, who can see them, and how much information is on it. Adoption is decided in that gap, and that gap can be measured and reduced. The <a href="study-checkingin.html">CheckingIn case study</a> is the same problem from the applied side: HR leaders read the dashboard perfectly well and still did not know what to act on, so the interface worked and the product did not.</p>
-    <p>I apply research to this gap in two ways. First, choosing the approach fit to the question, decision, and constraints, including a willingness to rule out an unhelpful study. Second, building a measure from nothing. Not all research questions arrive with an established measurement approach. I state in advance what would prove hypotheses wrong, validate methods and data before trusting a result, and build the infrastructure that keeps it standing at speed: reproducible pipelines, documentation, collaborative or version-controlled workflows I invite the team into, and AI-assisted qualitative coding with researcher oversight.</p>
+    <p>Six years of experiments demonstrated that how a user reads a screen is not a property of the screen. It moves with what they trust, who can see them, how much is on it, and who they are. Adoption is decided in that gap, and the gap can be measured and reduced. The <a href="study-checkingin.html">CheckingIn case study</a> is the same problem from the applied side: HR leaders read the dashboard perfectly well and still did not know what to act on, so the interface worked and the product did not.</p>
+    <p>I apply research to this gap in two ways. First, choosing the approach fit to the question, decision, and constraints, including a willingness to rule out an unhelpful study. Second, building a measure where none exists: stating in advance what would prove the hypothesis wrong, validating methods and data before trusting a result, and building the infrastructure that keeps it standing at speed - reproducible pipelines, documentation, collaborative or version-controlled workflows I invite the team into, and AI-assisted qualitative coding with researcher oversight.</p>
 
     <h2>Papers and code</h2>
     <div class="paper-ref">
@@ -223,11 +273,13 @@
       <p class="paper-ref__apa">Gerlofs, D. J., Roberts, K. H., &amp; Kingstone, A. (2025). Perceived intent drives gaze interpretation. <em>Attention, Perception, &amp; Psychophysics, 87</em>, 2323–2331.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., &amp; Kingstone, A. (2026). Metacognition and the dual function of social gaze. <em>Journal of Experimental Psychology: General, 155</em>(8), 1967.</p>
       <p class="paper-ref__apa">Gerlofs, D. J., et al. Visual complexity and search performance. Under review.</p>
+      <p class="paper-ref__apa">Gerlofs, D. J., &amp; Kingstone, A. Autistic traits influence the interpretation of social gaze signals. Under review.</p>
       <div class="paper-ref__links">
         <a class="chip" href="https://doi.org/10.1016/j.cognition.2022.105209">Cognition ↗</a>
         <a class="chip" href="https://doi.org/10.3758/s13414-025-03149-9">AP&amp;P ↗</a>
         <a class="chip" href="https://github.com/jacobgerlofs/Hide_and_Seek_Project">Data &amp; code ↗</a>
         <a class="chip" href="https://github.com/jacobgerlofs/h_s_complex_displays">Complexity repo ↗</a>
+        <a class="chip" href="https://doi.org/10.17605/OSF.IO/JHCPZ">Trait-group data &amp; code ↗</a>
       </div>
     </div>
 
