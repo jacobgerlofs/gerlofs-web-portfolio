@@ -33,6 +33,7 @@
       <span><b>Role:</b>&nbsp;Co-lead researcher (co-first author)</span>
       <span><b>Org:</b>&nbsp;Brain, Attention &amp; Reality Lab, UBC</span>
       <span><b>Methods:</b>&nbsp;Dual mobile eye-tracking, video, dialogue, time-series modelling</span>
+      <span><b>Timeline:</b>&nbsp;Two fixed May to Aug windows (2022, 2024), each ending when a visiting co-researcher left</span>
       <span><b>Status:</b>&nbsp;Published</span>
       <span class="outcome"><b>Outcome:</b>&nbsp;A working measure of real-time coordination, and researchers running sessions independently</span>
     </div>
@@ -48,8 +49,8 @@
 
     <figure class="figure figure--wide">
       <div class="figure-frame figure-frame--wide">
-          <svg viewBox="0 0 1010 200" role="img" aria-labelledby="craftMapTitle" style="width:100%;height:auto;display:block;">
-          <title id="craftMapTitle">Timeline of stages in the research project: no two-person measure existed, the task was designed and instrumented, the hardware was piloted until all four feeds aligned, a protocol was written and researchers trained, sessions were run with twenty-six pairs, a collaborative Git workflow was taught to the team, speech was transcribed by an AI model and coded by hand, the streams were resampled onto one timeline, and coupling was found across all channels.</title>
+          <svg viewBox="0 0 1010 272" role="img" aria-labelledby="craftMapTitle" style="width:100%;height:auto;display:block;">
+          <title id="craftMapTitle">Timeline of stages in the research project: no two-person measure existed, the task was designed and instrumented, the hardware was piloted until all four feeds aligned, a protocol was written and researchers trained, sessions were run with about fifty pairs across two conditions, a collaborative Git workflow was taught to the team, speech was transcribed by an AI model and coded by hand, the streams were resampled onto one timeline, and coupling was found across all channels. Design, piloting, training and data collection fall in summer 2022; the Git workflow, transcription and coding, and the final analysis fall in summer 2024.</title>
           <defs><marker id="craftArw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9b6ae"></path></marker></defs>
           <line x1="26" y1="102" x2="972" y2="102" stroke="#b9b6ae" stroke-width="2.5" marker-end="url(#craftArw)"></line>
           <line x1="78.0" y1="93" x2="78.0" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
@@ -70,8 +71,8 @@
           <text x="395.6" y="171" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">researchers trained</text>
           <line x1="501.5" y1="93" x2="501.5" y2="75" stroke="#c9c5bc" stroke-width="2"></line>
           <circle cx="501.5" cy="102" r="9" fill="#1C3557"></circle>
-          <text x="501.5" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Sessions run</text>
-          <text x="501.5" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">with 26 pairs</text>
+          <text x="501.5" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Sessions run,</text>
+          <text x="501.5" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">~50 pairs</text>
           <line x1="607.4" y1="111" x2="607.4" y2="129" stroke="#c9c5bc" stroke-width="2"></line>
           <circle cx="607.4" cy="102" r="9" fill="#1C3557"></circle>
           <text x="607.4" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Git workflow</text>
@@ -88,9 +89,15 @@
           <circle cx="925.0" cy="102" r="9" fill="#1C3557"></circle>
           <text x="925.0" y="48" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Coupling found</text>
           <text x="925.0" y="69" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">across all channels</text>
+          <path d="M150,198 L150,208 L535,208 L535,198" fill="none" stroke="#9aa3ae" stroke-width="2"></path>
+          <text x="342.5" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1C3557">Summer 2022</text>
+          <text x="342.5" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="400" fill="#45474a">May - Aug, all data collected in window</text>
+          <path d="M550,198 L550,208 L962,208 L962,198" fill="none" stroke="#9aa3ae" stroke-width="2"></path>
+          <text x="756.0" y="233" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1C3557">Summer 2024</text>
+          <text x="756.0" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="400" fill="#45474a">May - Aug, analysis including a ~2 week push</text>
           </svg>
       </div>
-      <figcaption>Timeline of stages in the research project. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
+      <figcaption>Timeline of stages in the research project, grouped by summer. About 50 pairs were collected across two conditions; 26 are analysed in the paper. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
     </figure>
 
     <h2>Designing the task and aligning the instrumentation</h2>
@@ -102,11 +109,32 @@
     <h2>Adapting protocols and training researchers to run sessions</h2>
     <p>A session meant two computers, two eye-trackers, two cameras, a calibration procedure that could fail silently, and a moderator staying present with two participants throughout. I could not be in the room for all of them, so researchers had to be able to run sessions independently.</p>
     <p>I wrote a standardized testing protocol, then rebuilt it around explicit prioritization rather than strict adherence: which steps must be identical every time because the data depends on them, and where a researcher should adapt the procedure to their own workflow. Some wanted printed instruction scripts, some tagged equipment with handling prompts, some reordered steps that had no dependency between them. For researchers new to moderating, I paired that with observation of my sessions first, sitting in on their early ones with an immediate debrief afterwards, and tapering support as their data-quality checks came back clean.</p>
-    <p>Researchers reached independent session-running within a few weeks, with fewer failed sessions and no loss of rigour on the steps that carried the findings. One went on to supervise their own research assistants using a version of the same protocol.</p>
+    <p>Junior researchers reached independent session-running within one to two weeks, with fewer failed sessions and no loss of rigour on the steps that carried the findings. One went on to supervise their own research assistants using a version of the same protocol.</p>
 
     <h2>Deploying a collaborative version-control workflow</h2>
     <p>The other bottleneck was analysis. Everyone on the team wrote their own R code for jobs that were largely the same - cleaning, modelling, plotting. People shared scripts on request, but there was no system, so someone could lose hours tracking down a colleague's code, or wait days for a collaborator to hand back a script before they could continue.</p>
     <p>I learned a collaborative Git workflow and taught it to the team: a local repository, pushed to a personal remote, merged into a shared one that everyone syncs from. Presentations first, then hands-on workshops, then co-working on live projects until it was routine.</p>
+
+    <figure class="figure">
+      <div class="figure-frame figure-frame--wide">
+        <svg viewBox="0 0 640 104" role="img" aria-labelledby="gitFlowTitle" style="width:100%;min-width:600px;height:auto;display:block;">
+          <title id="gitFlowTitle">Sequence of the Git workflow handoff: a workshop of one to two hours, then hands-on help over several short days, then the team working autonomously.</title>
+          <defs><marker id="gitArw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa3ae"></path></marker></defs>
+          <rect x="2" y="14" width="176" height="76" rx="10" fill="#eef2f8" stroke="#c9d3e2" stroke-width="1.5"></rect>
+          <text x="90.0" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Workshop</text>
+          <text x="90.0" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#45474a">1-2 hours</text>
+          <path d="M190,52 L224,52" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#gitArw)"></path>
+          <rect x="232" y="14" width="176" height="76" rx="10" fill="#eef2f8" stroke="#c9d3e2" stroke-width="1.5"></rect>
+          <text x="320.0" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#1C3557">Hands-on help</text>
+          <text x="320.0" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#45474a">several short days</text>
+          <path d="M420,52 L454,52" stroke="#9aa3ae" stroke-width="2.5" fill="none" marker-end="url(#gitArw)"></path>
+          <rect x="462" y="14" width="176" height="76" rx="10" fill="#1C3557" stroke="#1C3557" stroke-width="1.5"></rect>
+          <text x="550.0" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="600" fill="#ffffff">Team autonomous</text>
+          <text x="550.0" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="400" fill="#dfe6f0">shared repository</text>
+        </svg>
+      </div>
+      <figcaption>Sequence of the Git workflow handoff, summer 2024. <span class="fig-hint">Scroll sideways to see all of it.</span></figcaption>
+    </figure>
     <p>People on the same project could then write against the same scripts concurrently instead of passing files back and forth, which cut analysis time directly. The less expected effect was social: once the work lived in a shared repository, asking for help became reading a commit and contributing became a merge, so the team collaborated more because it cost less to do so.</p>
 
     <h2>AI transcription with human coding</h2>
